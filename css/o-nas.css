@@ -1,0 +1,131 @@
+/* About Us Page Specific Styles */
+
+/* About Main Section - O nas page */
+.about-main-section {
+    padding: 60px 0;
+    background: linear-gradient(180deg, rgba(245, 235, 231, 0) 70%, rgba(245, 235, 231, 1) 100%);
+}
+
+.about-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+    min-height: 600px;
+}
+
+.about-text-content {
+    width: 100%;
+}
+
+/* Removed duplicate .about-accent-line - now in base.css */
+
+.about-main-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 2rem;
+    line-height: var(--line-height-tight);
+}
+
+.about-description {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: rgb(34, 34, 34);
+    margin-bottom: 3rem;
+}
+
+.about-image-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: calc(100% + 2rem);
+    margin-left: 2rem;
+}
+
+.about-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.about-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsive Design for About Section */
+@media (max-width: 768px) {
+    .about-main-section {
+        padding: 60px 0;
+    }
+
+    .about-content-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "content";
+        gap: 3rem;
+    }
+
+    .about-text-content {
+        grid-area: content;
+        padding: 0;
+    }
+
+    .about-image-content {
+        grid-area: image;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .about-main-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .about-description {
+        font-size: var(--font-size-base);
+        margin-bottom: 2rem;
+    }
+
+    .about-image-wrapper img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-main-section {
+        padding: 30px 0;
+    }
+
+    .about-content-wrapper {
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-main-title {
+        font-size: var(--font-size-2xl);
+        margin-bottom: 1.5rem;
+    }
+
+    .about-description {
+        font-size: var(--font-size-base);
+        margin-bottom: 2rem;
+    }
+
+    .about-image-wrapper img {
+        height: 300px;
+    }
+}
+
+/* Removed unused team section styles */

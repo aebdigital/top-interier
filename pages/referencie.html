@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Referencie - TOP INTERIER s.r.o. | Portfólio realizovaných kuchýň</title>
+    <meta name="description" content="Pozrite si naše referencie a realizované kuchyne na mieru. Kvalitné riešenia interiérov a nábytku na mieru od TOP INTERIER s.r.o.">
+    <meta name="keywords" content="referencie, portfólio, kuchyne na mieru, realizácie, interiéry, TOP INTERIER">
+   
+    
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../css/base.css?v=3.0">
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="../css/components/header.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/footer.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/hero.css?v=3.0">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="../css/referencie.css?v=3.0">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP and Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Container -->
+    <div id="navigation-container"></div>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <div class="container">
+                <h1 class="contact-hero-title">Referencie</h1>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="masonry-gallery" id="references-gallery">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Fallback Components (always loads) -->
+    <script src="../js/fallback-components.js?v=3.0"></script>
+    <script src="../js/gsap-simple.js?v=3.0"></script>
+
+    <!-- Masonry Gallery Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Array of images from sources 2 folder
+            const galleryImages = [
+                '../sources/sources 2/07.jpg',
+                '../sources/sources 2/34.jpg', 
+                '../sources/sources 2/42.jpg',
+                '../sources/sources 2/44.jpg',
+                '../sources/sources 2/49.jpg',
+                '../sources/sources 2/51.jpg',
+                '../sources/sources 2/54.jpg'
+            ];
+            
+            const galleryContainer = document.getElementById('references-gallery');
+            
+            // Gallery data - regular grid, all same height
+            const galleryData = [
+                { image: galleryImages[0], title: 'Kuchyňa na mieru', description: 'Moderná kuchyňa s vysokým leskom' },
+                { image: galleryImages[1], title: 'Dizajnový interiér', description: 'Štýlové riešenie obývacieho priestoru' },
+                { image: galleryImages[2], title: 'Pracovný priestor', description: 'Funkčné a estetické riešenie' },
+                { image: galleryImages[3], title: 'Komplexný interiér', description: 'Celkové zariadenie bytu' },
+                { image: galleryImages[4], title: 'Luxusná kuchyňa', description: 'Prémiové materiály a dizajn' },
+                { image: galleryImages[5], title: 'Moderný štýl', description: 'Čisté línie a minimalizmus' },
+                { image: galleryImages[6], title: 'Tradičný charakter', description: 'Klasický dizajn s moderným prístupom' },
+                { image: galleryImages[0], title: 'Elegantné riešenie', description: 'Sofístikovaná estetika v každom detaile' },
+                { image: galleryImages[1], title: 'Organizované riešenie', description: 'Organizácia a úchova v modernej kuchyni' },
+                { image: galleryImages[2], title: 'Osvetlenie', description: 'Atmosféra a funkcionalita v jednom' },
+                { image: galleryImages[3], title: 'Detaily', description: 'Dokonalost aj v najmenších prvkoch' },
+                { image: galleryImages[4], title: 'Farebnosť', description: 'Harmónia tónov a materiálov' },
+                { image: galleryImages[5], title: 'Ergonómia', description: 'Pohodlie a funkčnosť pri používaní' },
+                { image: galleryImages[6], title: 'Technológie', description: 'Moderné vybavenie pre komfort' },
+                { image: galleryImages[0], title: 'Prírodné materiály', description: 'Autentickosť dreva a kamena' },
+                { image: galleryImages[1], title: 'Prémová kvalita', description: 'Najvyšší standard spracovania' },
+                { image: galleryImages[2], title: 'Individualita', description: 'Každý projekt je jedinečný' },
+                { image: galleryImages[3], title: 'Trendové prvky', description: 'Súčasné trendy v dizajne' },
+                { image: galleryImages[4], title: 'Priestorové riešenie', description: 'Optimálne využitie každého metra' },
+                { image: galleryImages[5], title: 'Udržateľnosť', description: 'Dlhodobá spoľahlivosť a odolnosť' },
+                { image: galleryImages[6], title: 'Vizuálny efekt', description: 'Nádych elegancie vo vašom domove' },
+                { image: galleryImages[0], title: 'Moderná estetika', description: 'Súčasný dizajn s nadčasovými prvkami' },
+                { image: galleryImages[1], title: 'Funkčné riešenia', description: 'Praktickosť spojená s krásou' },
+                { image: galleryImages[2], title: 'Kompletný servis', description: 'Od návrhu až po finálnu montáž' },
+                { image: galleryImages[3], title: 'Spokojnosť klientov', description: 'Vaša spokojnosť je naším cieľom' }
+            ];
+            
+            // Create masonry gallery items
+            galleryData.forEach(function(item, index) {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = `masonry-item ${item.height}`;
+                
+                galleryItem.innerHTML = `
+                    <div class="masonry-image-container">
+                        <img src="${item.image}" alt="${item.title}" loading="lazy">
+                        <div class="masonry-overlay">
+                            <div class="masonry-title">${item.title}</div>
+                            <div class="masonry-description">${item.description}</div>
+                        </div>
+                    </div>
+                `;
+                
+                galleryContainer.appendChild(galleryItem);
+            });
+        });
+    </script>
+
+    <!-- Main JavaScript (ES6 modules) -->
+    <script type="module" src="../js/main.js?v=3.0"></script>
+</body>
+</html>
