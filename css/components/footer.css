@@ -2,106 +2,125 @@
 
 /* Main Footer Content */
 .footer {
-    background: transparent;
-    color: #333333;
+    background: #000000;
+    color: #ffffff;
     padding: 0;
 }
 
 .footer-main-content {
-    background: linear-gradient(180deg, rgba(245, 235, 231, 0.9) 51.09%, #f1e5e0 100%);
-    padding: 80px 40px;
-    text-align: center;
-    color: #000000;
+    background: #000000;
+    padding: 80px 40px 40px;
+    color: #ffffff;
     margin: 0 auto;
 }
 
-.footer-logo-section {
-    margin-bottom: 40px;
+/* 3-Column Layout */
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.footer-logo-image {
-    height: 120px;
-    width: auto;
-    object-fit: contain;
+.footer-column {
+    text-align: left;
 }
 
-.footer-company-name {
-    margin-bottom: 50px;
-}
-
-.footer-company-name h2 {
-    font-family: var(--font-family);
-    font-size: 2.5rem;
-    font-weight: 300;
-    letter-spacing: 3px;
-    margin: 0;
-    color: #000000;
-}
-
-.footer-address-block {
-    margin-bottom: 40px;
-}
-
-.footer-address-block p {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #000000;
-    line-height: 1.4;
-    margin: 0;
-}
-
-.footer-contact-info {
-    margin-bottom: 40px;
+.footer-column h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
 }
 
 .footer-contact-info p {
     font-size: 1.1rem;
-    font-weight: 400;
-    margin: 0;
-    color: #000000;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: #ffffff;
+    line-height: 1.5;
 }
 
 .footer-contact-info a {
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 300;
+    transition: color 0.3s ease;
 }
 
 .footer-contact-info a:hover {
-    text-decoration: underline;
-}
-
-.footer-hours {
-    margin-bottom: 50px;
+    color: #cccccc;
 }
 
 .footer-hours p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+/* CTA Column */
+.footer-cta p {
     font-size: 1rem;
-    font-weight: 400;
-    margin: 0;
+    color: #cccccc;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.footer-cta-button {
+    display: inline-block;
+    background: #ffffff;
     color: #000000;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-cta-button:hover {
+    background: #cccccc;
+    transform: translateY(-2px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid #333333;
+    padding-top: 30px;
 }
 
 .footer-links {
     padding-bottom: 30px;
     text-align: center;
-    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .footer-links p {
     font-size: 0.9rem;
     font-weight: 300;
-    margin: 8px 0;
-    color: #666666;
+    margin: 0;
+    color: #cccccc;
 }
 
 .footer-links a {
-    color: #666666;
+    color: #cccccc;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+    color: #ffffff;
 }
 
 /* Cookie Consent Styles */
@@ -481,21 +500,43 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .footer-main-content {
-        padding: 60px 20px;
+        padding: 60px 20px 30px;
     }
     
-    .footer-company-name h2 {
-        font-size: 2rem;
-        letter-spacing: 2px;
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
     }
     
-    .footer-logo-image {
-        height: 80px;
+    .footer-column {
+        text-align: center;
     }
     
-    .footer-address-block p,
-    .footer-contact-info p {
+    .footer-column h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    
+    .footer-contact-info p,
+    .footer-hours p {
         font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .footer-cta p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .footer-cta-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
     }
     
     .cookie-consent-content {

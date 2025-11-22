@@ -385,3 +385,134 @@ margin-top: 20px !important;
         margin-bottom: 25px;
     }
 }
+
+/* Partners/Brands Section */
+.partners-section {
+    background: linear-gradient(180deg, rgba(245, 235, 231, 0.5) 0%, rgba(245, 235, 231, 1) 100%);
+    padding: 80px 0;
+}
+
+.partners-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.partners-intro .about-accent-line {
+    margin: 0 auto 20px;
+}
+
+.partners-intro .section-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 400;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.partners-description {
+    font-size: var(--font-size-lg);
+    color: var(--secondary-color);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: var(--line-height-relaxed);
+}
+
+.partners-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+}
+
+.partner-logo-item {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.partner-logo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.partner-logo {
+    max-width: 100%;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.partner-logo-item:hover .partner-logo {
+    filter: grayscale(0%);
+}
+
+/* Responsive Design for Partners Section */
+@media (max-width: 768px) {
+    .partners-section {
+        padding: 60px 0;
+    }
+    
+    .partners-intro {
+        margin-bottom: 40px;
+    }
+    
+    .partners-intro .section-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .partners-description {
+        font-size: var(--font-size-base);
+    }
+    
+    .partners-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 25px;
+    }
+    
+    .partner-logo-item {
+        padding: 20px;
+        height: 100px;
+    }
+    
+    .partner-logo {
+        max-height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-section {
+        padding: 40px 0;
+    }
+    
+    .partners-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .partner-logo-item {
+        padding: 15px;
+        height: 90px;
+    }
+    
+    .partner-logo {
+        max-height: 50px;
+    }
+    
+    .partners-intro .section-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .partners-description {
+        font-size: var(--font-size-sm);
+    }
+}

@@ -122,8 +122,10 @@
                     </div>
 
                     <div class="material-category">
-                        <h3>MDF s farebným nástrekom</h3>
+                        <h3>MDF</h3>
                         <ul>
+                            <li>PerfectSense Premium Matt</li>
+                            <li>Nanotech Velvet Ultra Matt</li>
                             <li>Odtiene RAL a NCS</li>
                             <li>Lesk, polomat, metalíza</li>
                         </ul>
@@ -135,7 +137,7 @@
                             <li>SIBU Design</li>
                             <li>LACOBEL</li>
                             <li>GRAFOSKLO</li>
-                            <li>Senosan a kovolamináty</li>
+                            <li>Kovolamináty</li>
                         </ul>
                     </div>
                 </div>
@@ -181,6 +183,22 @@
         </div>
     </section>
 
+    <!-- Partners/Brands Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="partners-intro">
+                <span class="about-accent-line"></span>
+                <h2 class="section-title">Naši partneri a značky</h2>
+                <p class="partners-description">
+                    Spolupracujeme s renomovanými výrobcami a dodávateľmi kvalitných materiálov a technológií.
+                </p>
+            </div>
+            <div class="partners-gallery" id="partners-gallery">
+                <!-- Partner logos will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
     <!-- Footer Container -->
     <div id="footer-container"></div>
 
@@ -202,9 +220,54 @@
                 '../sources/sources 2/54.jpg'
             ];
             
+            // Partner logos array
+            const partnerLogos = [
+                '20833l.jpg',
+                'Adriani-Rossi-Logo.jpg',
+                'Blum-gmbh.svg.png',
+                'Bosch_logo.png',
+                'Franke_logo.svg.png',
+                'Häfele_GmbH_&_Co_KG_Logo.svg.png',
+                'Kesseboehmer.svg',
+                'Siemens-Logo.png',
+                'blanco-vector-logo.webp',
+                'egger_lopo.jpg',
+                'images (1).png',
+                'images (2).png',
+                'images.png',
+                'schock-logo.png',
+                'silestone-blue-original.png',
+                'technistone_logo-webui-01.webp'
+            ];
+            
             // Function to get random image
             function getRandomImage() {
                 return interiorImages[Math.floor(Math.random() * interiorImages.length)];
+            }
+            
+            // Load partner logos
+            function loadPartnerLogos() {
+                const galleryContainer = document.getElementById('partners-gallery');
+                if (galleryContainer) {
+                    partnerLogos.forEach(function(logoFile) {
+                        const logoItem = document.createElement('div');
+                        logoItem.className = 'partner-logo-item';
+                        
+                        const logoImg = document.createElement('img');
+                        logoImg.src = '../sources/loga/' + logoFile;
+                        logoImg.alt = 'Partner logo';
+                        logoImg.className = 'partner-logo';
+                        logoImg.loading = 'lazy';
+                        
+                        // Handle image load errors gracefully
+                        logoImg.onerror = function() {
+                            this.style.display = 'none';
+                        };
+                        
+                        logoItem.appendChild(logoImg);
+                        galleryContainer.appendChild(logoItem);
+                    });
+                }
             }
             
             // Hero background image removed
@@ -213,6 +276,9 @@
             randomImageElements.forEach(function(img) {
                 img.src = getRandomImage();
             });
+            
+            // Load partner logos
+            loadPartnerLogos();
         });
     </script>
 

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/components/hero.css?v=3.0">
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="../css/referencie.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/filter.css?v=3.0">
     
     <!-- GSAP and Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -36,11 +37,21 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section with Filter -->
     <section class="gallery-section">
-        <div class="container">
-            <div class="vizualizacie-cards-grid" id="vizualizacie-gallery">
-                <!-- Gallery items will be populated by JavaScript -->
+        <div class="page-with-filter">
+            <!-- Filter Sidebar -->
+            <div class="filter-sidebar">
+                <div id="filter-container">
+                    <!-- Filter will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="vizualizacie-cards-grid" id="vizualizacie-gallery">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
             </div>
         </div>
     </section>
@@ -51,6 +62,7 @@
     <!-- Fallback Components (always loads) -->
     <script src="../js/fallback-components.js?v=3.0"></script>
     <script src="../js/gsap-simple.js?v=3.0"></script>
+    <script src="../js/components/filter.js?v=3.0"></script>
 
     <!-- Vizualizácie Gallery Script -->
     <script>
@@ -64,21 +76,24 @@
                     description: 'Moderný apartmán v prestížnej lokalite s panoramatickým výhľadom',
                     link: 'projekt-viz-bratislava-skypark.html',
                     image: '../sources/vizualizacie/Bratislava Skypark/viz_283.jpg',
-                    height: 'tall'
+                    height: 'tall',
+                    categories: ['moderne-kuchyne', 'obyvacie-izby']
                 },
                 {
                     title: 'Rodinný Dom Bratislava',
                     description: 'Elegantný rodinný dom s dôrazom na svetlé priestory',
                     link: 'projekt-viz-rodinny-dom-bratislava.html',
                     image: '../sources/vizualizacie/Rodinny Dom Bratislava/viz_328.jpg',
-                    height: 'medium'
+                    height: 'medium',
+                    categories: ['spalne', 'obyvacie-izby', 'kupelne']
                 },
                 {
                     title: 'Rodinný dom Dunajská Streda',
                     description: 'Funkčný dizajn s tradičnými prvkami v modernom prevedení',
                     link: 'projekt-viz-rodinny-dom-dunajska-streda.html',
                     image: '../sources/vizualizacie/Rodinny dom Dunajska streda/viz_310.jpg',
-                    height: 'short'
+                    height: 'short',
+                    categories: ['tradicne-kuchyne', 'obyvacie-izby']
                 }
             ];
             
@@ -86,6 +101,7 @@
             vizProjects.forEach(function(project) {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'vizualizacie-card';
+                galleryItem.setAttribute('data-category', project.categories.join(','));
                 
                 galleryItem.innerHTML = `
                     <a href="${project.link}" style="text-decoration: none; color: inherit;">
@@ -101,6 +117,11 @@
                 
                 galleryContainer.appendChild(galleryItem);
             });
+            
+            // Initialize filter
+            if (typeof initFilter === 'function') {
+                initFilter();
+            }
         });
     </script>
 

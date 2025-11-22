@@ -1,69 +1,11 @@
-/* Font Face Declarations */
-@font-face {
-    font-family: 'SangBleu Sans';
-    src: url('../fonts static/sangbleu-sans-hairline.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-@font-face {
-    font-family: 'SangBleu Sans';
-    src: url('../fonts static/sangbleu-sans-light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
+/* Didot/Bodoni Font for Logo */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600;700&display=swap');
 
-/* Removed unused font weights 100, 200 to reduce CSS size */
-
-@font-face {
-    font-family: 'Archivo Expanded';
-    src: url('../fonts static/Archivo_Expanded/Archivo_Expanded-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Archivo Expanded';
-    src: url('../fonts static/Archivo_Expanded/Archivo_Expanded-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Archivo Expanded';
-    src: url('../fonts static/Archivo_Expanded/Archivo_Expanded-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Archivo Expanded';
-    src: url('../fonts static/Archivo_Expanded/Archivo_Expanded-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Archivo Expanded';
-    src: url('../fonts static/Archivo_Expanded/Archivo_Expanded-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Archivo Expanded';
-    src: url('../fonts static/Archivo_Expanded/Archivo_Expanded-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
+/* Font Awesome Icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 /* Removed unused font weights 800, 900 to reduce CSS size */
 
@@ -85,7 +27,7 @@
     --section-bg-gradient-warm: linear-gradient(180deg, rgba(245, 235, 231, 0) 70%, rgba(245, 235, 231, 1) 100%);
     
     /* Typography - Font Sizes */
-    --font-family: 'SangBleu Sans', 'Archivo Expanded', sans-serif;
+    --font-family: 'Montserrat', sans-serif;
     --base-font-size: 16px;
 
     /* Font Size Scale - rem based for consistency */
@@ -133,6 +75,7 @@ html {
 body {
     font-family: var(--font-family);
     font-size: var(--base-font-size);
+    font-weight: 300; /* Montserrat Light */
     line-height: var(--line-height-normal);
     color: var(--text-color);
     background-color: var(--background-color);
@@ -152,39 +95,39 @@ body.no-scroll {
 /* Typography - Global Heading Styles */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family);
-    font-weight: 600;
+    font-weight: 300; /* Montserrat Light */
     line-height: var(--line-height-tight);
     margin: 0;
 }
 
 h1 {
     font-size: var(--font-size-5xl);
-    font-weight: 700;
+    font-weight: 400;
 }
 
 h2 {
     font-size: var(--font-size-3xl);
-    font-weight: 600;
+    font-weight: 300;
 }
 
 h3 {
     font-size: var(--font-size-2xl);
-    font-weight: 600;
+    font-weight: 400;
 }
 
 h4 {
     font-size: var(--font-size-xl);
-    font-weight: 600;
+    font-weight: 300;
 }
 
 h5 {
     font-size: var(--font-size-lg);
-    font-weight: 600;
+    font-weight: 300;
 }
 
 h6 {
     font-size: var(--font-size-base);
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -192,6 +135,7 @@ h6 {
 /* Paragraph Styles */
 p {
     font-size: var(--font-size-base);
+    font-weight: 300; /* Montserrat Light */
     line-height: var(--line-height-relaxed);
     margin: 0 0 1rem 0;
 }

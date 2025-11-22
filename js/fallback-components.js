@@ -51,21 +51,31 @@ function loadHeaderFallback() {
         <!-- Transparent Navigation -->
         <nav class="navbar navbar-transparent">
             <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="${basePath}index.html" class="logo-link">
+                        <span class="logo-text">TOP INTERIER</span>
+                    </a>
+                </div>
                 <ul class="nav-menu nav-menu-left">
                     <li><a href="${basePath}index.html" class="nav-link">Domov</a></li>
                     <li><a href="${pagesPath}sluzby.html" class="nav-link">Služby</a></li>
-                    <li><a href="${pagesPath}o-nas.html" class="nav-link">O nás</a></li>
-                </ul>
-                <div class="nav-logo">
-                    <a href="${basePath}index.html" class="logo-link">
-                        <img src="${basePath}sources/logo2.png" alt="TOP INTERIER s.r.o." class="logo-image">
-                    </a>
-                </div>
-                <ul class="nav-menu nav-menu-right">
                     <li><a href="${pagesPath}vizualizacie.html" class="nav-link">Vizualizácie</a></li>
                     <li><a href="${pagesPath}referencie.html" class="nav-link">Referencie</a></li>
                     <li><a href="${pagesPath}kontakt.html" class="nav-link">Kontakt</a></li>
                 </ul>
+                <div class="nav-menu-right">
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/topinterierDS" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/top_interier_studio/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:topinteriersro@gmail.com" class="social-icon" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -79,14 +89,13 @@ function loadHeaderFallback() {
         <div class="mobile-sidebar">
             <div class="mobile-sidebar-header">
                 <div class="mobile-sidebar-logo">
-                    <img src="${basePath}sources/logo2.png" alt="TOP INTERIER">
+                    <span class="logo-text">TOP INTERIÉR</span>
                 </div>
                 <button class="mobile-close-btn">✕</button>
             </div>
             <ul class="mobile-nav-menu">
                 <li><a href="${basePath}index.html" class="mobile-nav-link">Domov</a></li>
                 <li><a href="${pagesPath}sluzby.html" class="mobile-nav-link">Služby</a></li>
-                <li><a href="${pagesPath}o-nas.html" class="mobile-nav-link">O nás</a></li>
                 <li><a href="${pagesPath}vizualizacie.html" class="mobile-nav-link">Vizualizácie</a></li>
                 <li><a href="${pagesPath}referencie.html" class="mobile-nav-link">Referencie</a></li>
                 <li><a href="${pagesPath}kontakt.html" class="mobile-nav-link">Kontakt</a></li>
@@ -135,51 +144,46 @@ function loadFooterFallback() {
 
     const footerHTML = `
         <footer id="footer" class="footer">
-           
-            
-            
-        
-            
             <!-- Footer Main Content -->
             <div class="footer-main-content">
-                <!-- Logo -->
-                <div class="footer-logo-section">
-                    <img src="${basePath}sources/logo2.png" alt="TOP INTERIER" class="footer-logo-image">
+                <div class="footer-columns">
+                    <!-- Column 1: Contact Info -->
+                    <div class="footer-column">
+                        <h3>Kontakt</h3>
+                        <div class="footer-contact-info">
+                            <p><a href="tel:+421903808111">+421 903 808 111</a></p>
+                            <p><a href="mailto:topinteriersro@gmail.com">topinteriersro@gmail.com</a></p>
+                            <p>Mlynská 4629/2A</p>
+                            <p>929 01 Dunajská Streda</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2: Opening Hours -->
+                    <div class="footer-column">
+                        <h3>Otváracie hodiny</h3>
+                        <div class="footer-hours">
+                            <p>Pon - Pia 09:00 - 17:00</p>
+                            <p>Víkend a sviatky</p>
+                            <p>Na základe dohody</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 3: CTA -->
+                    <div class="footer-column footer-cta">
+                        <h3>Máte záujem o naše služby?</h3>
+                        <p>Kontaktujte nás pre bezplatnú konzultáciu a cenovú ponuku</p>
+                        <a href="${pagesPath}kontakt.html" class="footer-cta-button">Kontaktovať nás</a>
+                    </div>
                 </div>
                 
-                <!-- Company Name -->
-                <div class="footer-company-name">
-                    <h2>TOP INTERIER S.R.O.</h2>
-                </div>
-                
-                <!-- Address Block -->
-                <div class="footer-address-block">
-                    <p>Dunajská Streda</p>
-                    <p>Showroom</p>
-                    <p>Mlynská 4629/2A</p>
-                    <p>929 01 Dunajská Streda</p>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="footer-contact-info">
-                    <p><a href="tel:+421903808111">+421 903 808 111</a></p>
-                    <p><a href="mailto:topinteriersro@gmail.com">topinteriersro@gmail.com</a></p>
-                </div>
-                
-                <!-- Opening Hours -->
-                <div class="footer-hours">
-                    <p>Po - Pi: 09:00 - 17:00</p>
-                    <p>Iný čas na základe dohody</p>
-                </div>
-                
-               
-                
-                <!-- Footer Links -->
-                <div class="footer-links">
-                    <p><a href="#" onclick="openPrivacyPopup(); return false;">Ochrana osobných údajov</a></p>
-                    <p><a href="#">Nastavenia cookies</a></p>
-                    <p><a href="https://aebdigital.sk" target="_blank" rel="noopener">Tvorba stránky - AEB Digital</a></p>
-                    <p>&copy; TOP INTERIER s.r.o. 2025</p>
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="footer-links">
+                        <p><a href="#" onclick="openPrivacyPopup(); return false;">Ochrana osobných údajov</a></p>
+                        <p><a href="#">Nastavenia cookies</a></p>
+                        <p><a href="https://aebdigital.sk" target="_blank" rel="noopener">Tvorba stránky - AEB Digital</a></p>
+                        <p>&copy; TOP INTERIER, spol. s r.o. 2025</p>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -263,7 +267,7 @@ function loadFooterFallback() {
                 </div>
                 <div class="privacy-popup-body">
                     <div class="company-info">
-                        <strong>TOP INTERIER s.r.o.</strong><br>
+                        <strong>TOP INTERIER, spol. s r.o.</strong><br>
                         <a href="https://maps.google.com/?q=Mlynsk%C3%A1+4629%2F2A,+929+01+Dunajsk%C3%A1+Streda" target="_blank" rel="noopener" style="text-decoration: underline; color: #ec1b23;">Mlynská 4629/2A, 929 01 Dunajská Streda</a><br>
                         Slovenská republika<br>
                         E-mail: topinteriersro@gmail.com<br>
@@ -661,6 +665,227 @@ document.addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(showCookieConsent, 1000); // Show after 1 second
 });
+
+// Lightbox functionality embedded in fallback
+let currentImages = [];
+let currentIndex = 0;
+let isLightboxOpen = false;
+
+function initLightboxFallback() {
+    createLightboxHTMLFallback();
+    bindLightboxEventsFallback();
+}
+
+function createLightboxHTMLFallback() {
+    // Remove existing lightbox if present
+    const existingLightbox = document.getElementById('lightbox-modal');
+    if (existingLightbox) {
+        existingLightbox.remove();
+    }
+
+    const lightboxHTML = `
+        <div id="lightbox-modal" class="lightbox-modal">
+            <div class="lightbox-backdrop"></div>
+            <div class="lightbox-container">
+                <button class="lightbox-close" aria-label="Zavrieť lightbox">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                
+                <button class="lightbox-nav lightbox-prev" aria-label="Predchádzajúci obrázok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+                
+                <button class="lightbox-nav lightbox-next" aria-label="Nasledujúci obrázok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="lightbox-content">
+                    <img class="lightbox-image" src="" alt="" />
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+}
+
+function bindLightboxEventsFallback() {
+    const modal = document.getElementById('lightbox-modal');
+    if (!modal) return;
+    
+    const closeBtn = modal.querySelector('.lightbox-close');
+    const prevBtn = modal.querySelector('.lightbox-prev');
+    const nextBtn = modal.querySelector('.lightbox-next');
+    const backdrop = modal.querySelector('.lightbox-backdrop');
+    
+    // Close events
+    if (closeBtn) closeBtn.addEventListener('click', closeLightboxFallback);
+    if (backdrop) backdrop.addEventListener('click', closeLightboxFallback);
+    
+    // Navigation events
+    if (prevBtn) prevBtn.addEventListener('click', showPreviousFallback);
+    if (nextBtn) nextBtn.addEventListener('click', showNextFallback);
+    
+    // Keyboard events
+    document.addEventListener('keydown', handleKeydownFallback);
+}
+
+function openLightboxFallback(images, startIndex = 0) {
+    currentImages = images;
+    currentIndex = startIndex;
+    isLightboxOpen = true;
+    
+    const modal = document.getElementById('lightbox-modal');
+    if (!modal) return;
+    
+    const image = modal.querySelector('.lightbox-image');
+    const prevBtn = modal.querySelector('.lightbox-prev');
+    const nextBtn = modal.querySelector('.lightbox-next');
+    
+    // Show/hide navigation buttons
+    if (prevBtn) prevBtn.style.display = currentImages.length > 1 ? 'flex' : 'none';
+    if (nextBtn) nextBtn.style.display = currentImages.length > 1 ? 'flex' : 'none';
+    
+    // Load image
+    loadImageFallback(currentImages[currentIndex]);
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Animate in
+    setTimeout(() => {
+        modal.style.opacity = '1';
+        const backdrop = modal.querySelector('.lightbox-backdrop');
+        if (backdrop) backdrop.style.opacity = '1';
+        if (image) {
+            image.style.transform = 'scale(1)';
+            image.style.opacity = '1';
+        }
+    }, 10);
+}
+
+function closeLightboxFallback() {
+    if (!isLightboxOpen) return;
+    
+    const modal = document.getElementById('lightbox-modal');
+    if (!modal) return;
+    
+    const image = modal.querySelector('.lightbox-image');
+    const backdrop = modal.querySelector('.lightbox-backdrop');
+    
+    // Animate out
+    modal.style.opacity = '0';
+    if (backdrop) backdrop.style.opacity = '0';
+    if (image) {
+        image.style.transform = 'scale(0.9)';
+        image.style.opacity = '0';
+    }
+    
+    setTimeout(() => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        isLightboxOpen = false;
+    }, 300);
+}
+
+function showPreviousFallback() {
+    if (currentImages.length <= 1) return;
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+    updateLightboxImageFallback();
+}
+
+function showNextFallback() {
+    if (currentImages.length <= 1) return;
+    currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
+    updateLightboxImageFallback();
+}
+
+function updateLightboxImageFallback() {
+    const modal = document.getElementById('lightbox-modal');
+    if (!modal) return;
+    
+    const image = modal.querySelector('.lightbox-image');
+    
+    // Fade out current image
+    if (image) {
+        image.style.opacity = '0';
+        image.style.transform = 'scale(0.95)';
+    }
+    
+    setTimeout(() => {
+        
+        // Load new image
+        loadImageFallback(currentImages[currentIndex]);
+        
+        // Fade in new image
+        setTimeout(() => {
+            if (image) {
+                image.style.opacity = '1';
+                image.style.transform = 'scale(1)';
+            }
+        }, 50);
+    }, 150);
+}
+
+function loadImageFallback(src) {
+    const modal = document.getElementById('lightbox-modal');
+    if (!modal) return;
+    
+    const image = modal.querySelector('.lightbox-image');
+    if (!image) return;
+    
+    // Create new image to preload
+    const newImg = new Image();
+    newImg.onload = () => {
+        image.src = newImg.src;
+        image.alt = `Obrázok ${currentIndex + 1}`;
+    };
+    newImg.src = src;
+}
+
+function handleKeydownFallback(e) {
+    if (!isLightboxOpen) return;
+    
+    switch (e.key) {
+        case 'Escape':
+            closeLightboxFallback();
+            break;
+        case 'ArrowLeft':
+            showPreviousFallback();
+            break;
+        case 'ArrowRight':
+            showNextFallback();
+            break;
+    }
+}
+
+function initGalleryLightboxFallback(images, containerSelector = '.project-gallery-content') {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+    
+    // Add click handlers to all gallery items
+    const galleryItems = container.querySelectorAll('.project-gallery-item img');
+    galleryItems.forEach((img, index) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            openLightboxFallback(images, index);
+        });
+    });
+}
+
+// Make functions globally available
+window.initLightbox = initLightboxFallback;
+window.openLightbox = openLightboxFallback;
+window.closeLightbox = closeLightboxFallback;
+window.initGalleryLightbox = initGalleryLightboxFallback;
 
 // Minimal fallback - no complex animations that could conflict
 console.log('Fallback: Using minimal approach like template');

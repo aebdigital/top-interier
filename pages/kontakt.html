@@ -37,34 +37,33 @@
         </div>
     </section>
 
+    <!-- Full Width Photo Section -->
+    <section class="contact-photo-section">
+        <div class="contact-photo-container">
+            <img id="contact-hero-image" class="contact-hero-image" alt="TOP INTERIER - Naše kuchyne a interiéry">
+        </div>
+    </section>
+
     <!-- Contact Content Section -->
     <section class="contact-content">
         <div class="container">
-            <div class="contact-wrapper">
-                <!-- Company Information -->
+            <div class="contact-layout">
+                <!-- Contact Info Section - Left 1/3 -->
                 <div class="contact-info-section">
                     <div class="contact-info-content">
-                        <div class="main-heading-container">
-                            <div class="heading-left">
-                                <span class="main-accent-line"></span>
-                                <h2 class="location-main-heading">TOP INTERIER s.r.o.</h2>
-                                <div class="company-registration-header">
-                                    <p>Firma od roku 2000</p>
-                                    <p>Špecializácia: kuchyne na mieru</p>
-                                </div>
-                            </div>
-                            <div class="heading-right">
-                                <div class="address-info-header">
-                                    <p>Mlynská 4629/2A<br>
-                                    929 01 Dunajská Streda<br>
-                                    Slovensko</p>
-                                    <p class="email-under-address"><a href="mailto:topinteriersro@gmail.com">topinteriersro@gmail.com</a></p>
-                                </div>
-                            </div>
+                        <span class="main-accent-line"></span>
+                        <h2 class="location-main-heading">TOP INTERIER, spol. s r.o.                        </h2>
+                        
+                        
+                        
+                        <div class="address-info">
+                            <p><strong>Adresa:</strong></p>
+                            <p>Mlynská 4629/2A<br>
+                            929 01 Dunajská Streda<br>
+                            Slovensko</p>
                         </div>
                         
-                        <!-- Contact Persons - Horizontal Layout -->
-                        <div class="contact-persons-grid">
+                        <div class="contact-details">
                             <div class="contact-person">
                                 <p><strong>Monika Morafková Peterková</strong></p>
                                 <p><a href="tel:+421903808111">+421 903 808 111</a></p>
@@ -85,21 +84,21 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Map Section -->
-                    <div class="contact-map-section">
-                        <div class="location-map-container">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.5!2d17.627!3d48.115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b67b5c33d8b0b%3A0x400f7d1c6915bd0!2sMlynsk%C3%A1%2C%20929%2001%20Dunajsk%C3%A1%20Streda!5e0!3m2!1sen!2ssk!4v1635789123456!5m2!1sen!2ssk"
-                                width="100%" 
-                                height="500" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade"
-                                title="TOP INTERIER s.r.o. - Mlynská 4629/2A, Dunajská Streda">
-                            </iframe>
-                        </div>
+                </div>
+                
+                <!-- Map Section - Right 1/3 -->
+                <div class="contact-map-section">
+                    <div class="location-map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.5!2d17.627!3d48.115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b9d7a8a37820d:0xdb9072a673a224d5!2sMlynsk%C3%A1%204629%2F2A%2C%20929%2001%20Dunajsk%C3%A1%20Streda!5e0!3m2!1sen!2ssk!4v1635789123456!5m2!1sen!2ssk"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="TOP INTERIER s.r.o. - Mlynská 4629/2A, Dunajská Streda">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -113,26 +112,17 @@
     <script src="../js/fallback-components.js?v=3.0"></script>
     <script src="../js/gsap-simple.js?v=3.0"></script>
 
-    <!-- Random Image Loader Script -->
+    <!-- Fixed Image Loader Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Array of images from sources 2 folder (kitchen and interior photos)
-            const interiorImages = [
-                '../sources/sources 2/07.jpg',
-                '../sources/sources 2/34.jpg',
-                '../sources/sources 2/42.jpg',
-                '../sources/sources 2/44.jpg',
-                '../sources/sources 2/49.jpg',
-                '../sources/sources 2/51.jpg',
-                '../sources/sources 2/54.jpg'
-            ];
+            // Use first image from homepage hero slider
+            const heroImageSrc = '../sources/vizualizacie/Bratislava Skypark/viz_283.jpg';
             
-            // Function to get random image
-            function getRandomImage() {
-                return interiorImages[Math.floor(Math.random() * interiorImages.length)];
+            // Set fixed image for contact hero photo
+            const heroImage = document.getElementById('contact-hero-image');
+            if (heroImage) {
+                heroImage.src = heroImageSrc;
             }
-            
-            // Hero background image removed
         });
     </script>
 

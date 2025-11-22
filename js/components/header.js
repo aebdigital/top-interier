@@ -38,20 +38,31 @@ function loadNavigation() {
         <!-- Transparent Navigation -->
         <nav class="navbar navbar-transparent">
             <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="${basePath}index.html" class="logo-link">
+                        <span class="logo-text">TOP INTERIER</span>
+                    </a>
+                </div>
                 <ul class="nav-menu nav-menu-left">
                     <li><a href="${basePath}index.html" class="nav-link">Domov</a></li>
                     <li><a href="${pagesPath}sluzby.html" class="nav-link">Služby</a></li>
-                    <li><a href="${pagesPath}o-nas.html" class="nav-link">O nás</a></li>
-                </ul>
-                <div class="nav-logo">
-                    <a href="${basePath}index.html" class="logo-link">
-                        <img src="${basePath}sources/logo2.png" alt="TOP INTERIER s.r.o." class="logo-image">
-                    </a>
-                </div>
-                <ul class="nav-menu nav-menu-right">
+                    <li><a href="${pagesPath}vizualizacie.html" class="nav-link">Vizualizácie</a></li>
                     <li><a href="${pagesPath}referencie.html" class="nav-link">Referencie</a></li>
                     <li><a href="${pagesPath}kontakt.html" class="nav-link">Kontakt</a></li>
                 </ul>
+                <div class="nav-menu-right">
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/topinterierDS" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/top_interier_studio/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:topinteriersro@gmail.com" class="social-icon" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -65,14 +76,14 @@ function loadNavigation() {
         <div class="mobile-sidebar">
             <div class="mobile-sidebar-header">
                 <div class="mobile-sidebar-logo">
-                    <img src="${basePath}sources/logo2.png" alt="TOP INTERIER">
+                    <span class="logo-text">TOP INTERIÉR</span>
                 </div>
                 <button class="mobile-close-btn">✕</button>
             </div>
             <ul class="mobile-nav-menu">
                 <li><a href="${basePath}index.html" class="mobile-nav-link">Domov</a></li>
                 <li><a href="${pagesPath}sluzby.html" class="mobile-nav-link">Služby</a></li>
-                <li><a href="${pagesPath}o-nas.html" class="mobile-nav-link">O nás</a></li>
+                <li><a href="${pagesPath}vizualizacie.html" class="mobile-nav-link">Vizualizácie</a></li>
                 <li><a href="${pagesPath}referencie.html" class="mobile-nav-link">Referencie</a></li>
                 <li><a href="${pagesPath}kontakt.html" class="mobile-nav-link">Kontakt</a></li>
             </ul>

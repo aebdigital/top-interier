@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../css/components/hero.css?v=3.0">
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="../css/referencie.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/filter.css?v=3.0">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- GSAP and Animation Libraries -->
@@ -40,11 +41,21 @@
 
     
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section with Filter -->
     <section class="gallery-section">
-        <div class="container">
-            <div class="masonry-gallery" id="references-gallery">
-                <!-- Gallery items will be populated by JavaScript -->
+        <div class="page-with-filter">
+            <!-- Filter Sidebar -->
+            <div class="filter-sidebar">
+                <div id="filter-container">
+                    <!-- Filter will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="vizualizacie-cards-grid" id="references-gallery">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
             </div>
         </div>
     </section>
@@ -57,6 +68,7 @@
     <!-- Fallback Components (always loads) -->
     <script src="../js/fallback-components.js?v=3.0"></script>
     <script src="../js/gsap-simple.js?v=3.0"></script>
+    <script src="../js/components/filter.js?v=3.0"></script>
 
     <!-- Masonry Gallery Script -->
     <script>
@@ -74,52 +86,57 @@
             
             const galleryContainer = document.getElementById('references-gallery');
             
-            // Gallery data - regular grid, all same height
+            // Gallery data with categories
             const galleryData = [
-                { image: galleryImages[0], title: 'Kuchyňa na mieru', description: 'Moderná kuchyňa s vysokým leskom' },
-                { image: galleryImages[1], title: 'Dizajnový interiér', description: 'Štýlové riešenie obývacieho priestoru' },
-                { image: galleryImages[2], title: 'Pracovný priestor', description: 'Funkčné a estetické riešenie' },
-                { image: galleryImages[3], title: 'Komplexný interiér', description: 'Celkové zariadenie bytu' },
-                { image: galleryImages[4], title: 'Luxusná kuchyňa', description: 'Prémiové materiály a dizajn' },
-                { image: galleryImages[5], title: 'Moderný štýl', description: 'Čisté línie a minimalizmus' },
-                { image: galleryImages[6], title: 'Tradičný charakter', description: 'Klasický dizajn s moderným prístupom' },
-                { image: galleryImages[0], title: 'Elegantné riešenie', description: 'Sofístikovaná estetika v každom detaile' },
-                { image: galleryImages[1], title: 'Organizované riešenie', description: 'Organizácia a úchova v modernej kuchyni' },
-                { image: galleryImages[2], title: 'Osvetlenie', description: 'Atmosféra a funkcionalita v jednom' },
-                { image: galleryImages[3], title: 'Detaily', description: 'Dokonalost aj v najmenších prvkoch' },
-                { image: galleryImages[4], title: 'Farebnosť', description: 'Harmónia tónov a materiálov' },
-                { image: galleryImages[5], title: 'Ergonómia', description: 'Pohodlie a funkčnosť pri používaní' },
-                { image: galleryImages[6], title: 'Technológie', description: 'Moderné vybavenie pre komfort' },
-                { image: galleryImages[0], title: 'Prírodné materiály', description: 'Autentickosť dreva a kamena' },
-                { image: galleryImages[1], title: 'Prémová kvalita', description: 'Najvyšší standard spracovania' },
-                { image: galleryImages[2], title: 'Individualita', description: 'Každý projekt je jedinečný' },
-                { image: galleryImages[3], title: 'Trendové prvky', description: 'Súčasné trendy v dizajne' },
-                { image: galleryImages[4], title: 'Priestorové riešenie', description: 'Optimálne využitie každého metra' },
-                { image: galleryImages[5], title: 'Udržateľnosť', description: 'Dlhodobá spoľahlivosť a odolnosť' },
-                { image: galleryImages[6], title: 'Vizuálny efekt', description: 'Nádych elegancie vo vašom domove' },
-                { image: galleryImages[0], title: 'Moderná estetika', description: 'Súčasný dizajn s nadčasovými prvkami' },
-                { image: galleryImages[1], title: 'Funkčné riešenia', description: 'Praktickosť spojená s krásou' },
-                { image: galleryImages[2], title: 'Kompletný servis', description: 'Od návrhu až po finálnu montáž' },
-                { image: galleryImages[3], title: 'Spokojnosť klientov', description: 'Vaša spokojnosť je naším cieľom' }
+                { image: galleryImages[0], title: 'Kuchyňa na mieru', description: 'Moderná kuchyňa s vysokým leskom', categories: ['moderne-kuchyne'] },
+                { image: galleryImages[1], title: 'Dizajnový interiér', description: 'Štýlové riešenie obývacieho priestoru', categories: ['obyvacie-izby'] },
+                { image: galleryImages[2], title: 'Pracovný priestor', description: 'Funkčné a estetické riešenie', categories: ['kancelarie'] },
+                { image: galleryImages[3], title: 'Komplexný interiér', description: 'Celkové zariadenie bytu', categories: ['obyvacie-izby'] },
+                { image: galleryImages[4], title: 'Luxusná kuchyňa', description: 'Prémiové materiály a dizajn', categories: ['moderne-kuchyne'] },
+                { image: galleryImages[5], title: 'Moderný štýl', description: 'Čisté línie a minimalizmus', categories: ['spalne'] },
+                { image: galleryImages[6], title: 'Tradičný charakter', description: 'Klasický dizajn s moderným prístupom', categories: ['tradicne-kuchyne'] },
+                { image: galleryImages[0], title: 'Elegantné riešenie', description: 'Sofístikovaná estetika v každom detaile', categories: ['kupelne'] },
+                { image: galleryImages[1], title: 'Organizované riešenie', description: 'Organizácia a úchova v modernej kuchyni', categories: ['kniznica'] },
+                { image: galleryImages[2], title: 'Osvetlenie', description: 'Atmosféra a funkcionalita v jednom', categories: ['predsien'] },
+                { image: galleryImages[3], title: 'Detaily', description: 'Dokonalost aj v najmenších prvkoch', categories: ['moderne-kuchyne'] },
+                { image: galleryImages[4], title: 'Farebnosť', description: 'Harmónia tónov a materiálov', categories: ['obyvacie-izby'] },
+                { image: galleryImages[5], title: 'Ergonómia', description: 'Pohodlie a funkčnosť pri používaní', categories: ['kancelarie'] },
+                { image: galleryImages[6], title: 'Technológie', description: 'Moderné vybavenie pre komfort', categories: ['moderne-kuchyne'] },
+                { image: galleryImages[0], title: 'Prírodné materiály', description: 'Autentickosť dreva a kamena', categories: ['tradicne-kuchyne'] },
+                { image: galleryImages[1], title: 'Prémová kvalita', description: 'Najvyšší standard spracovania', categories: ['spalne'] },
+                { image: galleryImages[2], title: 'Individualita', description: 'Každý projekt je jedinečný', categories: ['obchody'] },
+                { image: galleryImages[3], title: 'Trendové prvky', description: 'Súčasné trendy v dizajne', categories: ['kupelne'] },
+                { image: galleryImages[4], title: 'Priestorové riešenie', description: 'Optimálne využitie každého metra', categories: ['kniznica'] },
+                { image: galleryImages[5], title: 'Udržateľnosť', description: 'Dlhodobá spoľahlivosť a odolnosť', categories: ['predsien'] },
+                { image: galleryImages[6], title: 'Vizuálny efekt', description: 'Nádych elegancie vo vašom domove', categories: ['obyvacie-izby'] },
+                { image: galleryImages[0], title: 'Moderná estetika', description: 'Súčasný dizajn s nadčasovými prvkami', categories: ['moderne-kuchyne'] },
+                { image: galleryImages[1], title: 'Funkčné riešenia', description: 'Praktickosť spojená s krásou', categories: ['kancelarie'] },
+                { image: galleryImages[2], title: 'Kompletný servis', description: 'Od návrhu až po finálnu montáž', categories: ['obchody'] }
             ];
             
-            // Create masonry gallery items
+            // Create visualization-style gallery items
             galleryData.forEach(function(item, index) {
                 const galleryItem = document.createElement('div');
-                galleryItem.className = `masonry-item ${item.height}`;
+                galleryItem.className = 'vizualizacie-card';
+                galleryItem.setAttribute('data-category', item.categories.join(','));
                 
                 galleryItem.innerHTML = `
-                    <div class="masonry-image-container">
+                    <div class="vizualizacie-card-container">
                         <img src="${item.image}" alt="${item.title}" loading="lazy">
-                        <div class="masonry-overlay">
-                            <div class="masonry-title">${item.title}</div>
-                            <div class="masonry-description">${item.description}</div>
+                        <div class="vizualizacie-card-overlay">
+                            <div class="vizualizacie-card-title">${item.title}</div>
+                            <div class="vizualizacie-card-description">${item.description}</div>
                         </div>
                     </div>
                 `;
                 
                 galleryContainer.appendChild(galleryItem);
             });
+            
+            // Initialize filter
+            if (typeof initFilter === 'function') {
+                initFilter();
+            }
         });
     </script>
 

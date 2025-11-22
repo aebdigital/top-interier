@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/components/hero.css?v=3.0">
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="../css/project-detail.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/lightbox.css?v=3.0">
     
     <!-- GSAP and Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -52,14 +53,6 @@
                         <span class="meta-label">Lokalita</span>
                         <span class="meta-value">Bratislava Skypark</span>
                     </div>
-                    <div class="project-meta-item">
-                        <span class="meta-label">Štýl</span>
-                        <span class="meta-value">Moderný</span>
-                    </div>
-                    <div class="project-meta-item">
-                        <span class="meta-label">Plocha</span>
-                        <span class="meta-value">85 m²</span>
-                    </div>
                 </div>
                 
                 <a href="vizualizacie.html" class="back-to-vizualizacie">
@@ -71,7 +64,10 @@
         <!-- Right Content - Photo Gallery -->
         <div class="project-gallery-content">
             <div class="project-gallery-grid" id="gallery-grid">
-                <!-- Photos will be loaded dynamically -->
+                <!-- Main hero photo will be loaded here -->
+            </div>
+            <div class="project-gallery-thumbnails" id="gallery-thumbnails">
+                <!-- Thumbnail photos will be loaded here -->
             </div>
         </div>
     </section>
@@ -82,6 +78,7 @@
     <!-- Load components directly with fallback -->
     <script src="../js/fallback-components.js?v=3.0"></script>
     <script src="../js/gsap-simple.js?v=3.0"></script>
+    <script src="../js/components/lightbox.js?v=3.0"></script>
     
     <!-- Project Gallery Script -->
     <script>
@@ -115,22 +112,48 @@
             ];
             
             loadGallery(images, projectFolder);
+            
+            // Initialize lightbox after gallery is loaded
+            setTimeout(() => {
+                if (typeof initLightbox === 'function') {
+                    initLightbox();
+                    // Create image paths for lightbox
+                    const imagePaths = images.map(img => `../sources/vizualizacie/${projectFolder}/${img}`);
+                    initGalleryLightbox(imagePaths);
+                }
+            }, 100);
         });
         
         function loadGallery(images, folder) {
             const galleryGrid = document.getElementById('gallery-grid');
+            const galleryThumbnails = document.getElementById('gallery-thumbnails');
             
             images.forEach((image, index) => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'project-gallery-item';
-                
-                const img = document.createElement('img');
-                img.src = `../sources/vizualizacie/${folder}/${image}`;
-                img.alt = `${folder} - ${index + 1}`;
-                img.loading = 'lazy';
-                
-                galleryItem.appendChild(img);
-                galleryGrid.appendChild(galleryItem);
+                if (index === 0) {
+                    // First image - main hero photo
+                    const heroItem = document.createElement('div');
+                    heroItem.className = 'project-gallery-item';
+                    
+                    const heroImg = document.createElement('img');
+                    heroImg.src = `../sources/vizualizacie/${folder}/${image}`;
+                    heroImg.alt = `${folder} - hlavný obrázok`;
+                    heroImg.loading = 'eager';
+                    
+                    heroItem.appendChild(heroImg);
+                    galleryGrid.appendChild(heroItem);
+                } else {
+                    // Other images - thumbnails in 3-per-row grid
+                    const thumbItem = document.createElement('div');
+                    thumbItem.className = 'project-gallery-item';
+                    
+                    const thumbImg = document.createElement('img');
+                    thumbImg.src = `../sources/vizualizacie/${folder}/${image}`;
+                    thumbImg.alt = `${folder} - obrázok ${index + 1}`;
+                    thumbImg.loading = 'lazy';
+                    
+                    thumbItem.appendChild(thumbImg);
+                    galleryThumbnails.appendChild(thumbItem);
+                }
             });
         }
     </script>
