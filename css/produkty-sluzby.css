@@ -2,8 +2,19 @@
 
 /* Services Main Section */
 .services-main-section {
-    padding: 80px 0;
-    background: linear-gradient(180deg, rgba(245, 235, 231, 0) 70%, rgba(245, 235, 231, 1) 100%);
+    padding: 40px 0 80px 0;
+    background: #f5eeea;
+}
+
+.services-intro .section-title {
+    margin-bottom: 20px;
+}
+
+.services-description {
+    max-width: 50%;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: #555;
 }
 
 /* Removed unused section styles */
@@ -70,7 +81,7 @@
 
 .material-category h3 {
     font-size: var(--font-size-lg);
-    font-weight: 600;
+    font-weight: 300;
     margin-bottom: 20px;
     color: var(--primary-color);
     text-transform: uppercase;
@@ -86,7 +97,7 @@
 .material-category li {
     padding: 8px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    font-weight: 400;
+    font-weight: 300;
     color: #555;
     position: relative;
     padding-left: 20px;
@@ -132,7 +143,7 @@
 
 .hardware-category h3 {
     font-size: var(--font-size-lg);
-    font-weight: 600;
+    font-weight: 300;
     margin-bottom: 20px;
     color: var(--primary-color);
     text-transform: uppercase;
@@ -148,7 +159,7 @@
 .hardware-category li {
     padding: 8px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    font-weight: 400;
+    font-weight: 300;
     color: #555;
     position: relative;
     padding-left: 20px;
@@ -198,9 +209,18 @@
 margin-top: 20px !important;
 }
 
+.service-content h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .service-title {
     font-size: var(--font-size-xl);
-    font-weight: 600;
+    font-weight: 300;
     color: var(--primary-color);
     margin: 0 0 15px 0;
     text-transform: uppercase;
@@ -220,14 +240,14 @@ margin-top: 20px !important;
 /* CTA Section */
 .cta-section {
     padding: 80px 0;
-    background: linear-gradient(180deg, rgba(245, 235, 231, 0) 70%, rgba(245, 235, 231, 1) 100%);
+    background: #f5eeea;
     color: var(--text-color);
     text-align: center;
 }
 
 .cta-content h2 {
     font-size: var(--font-size-3xl);
-    font-weight: 600;
+    font-weight: 300;
     margin: 0 0 20px 0;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -244,23 +264,21 @@ margin-top: 20px !important;
 
 .cta-btn {
     display: inline-block;
-    padding: 15px 40px;
-    background: #f6efeb;
-    color: var(--primary-color);
+    background: #ffffff;
+    color: #000000;
+    padding: 15px 30px;
     text-decoration: none;
-    border-radius: 6px;
-    font-size: var(--font-size-base);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 1rem;
+    border-radius: 0;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .cta-btn:hover {
-    background: #f8f9fa;
+    background: #cccccc;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Design */
@@ -388,7 +406,7 @@ margin-top: 20px !important;
 
 /* Partners/Brands Section */
 .partners-section {
-    background: linear-gradient(180deg, rgba(245, 235, 231, 0.5) 0%, rgba(245, 235, 231, 1) 100%);
+    background: #f5eeea;
     padding: 80px 0;
 }
 
@@ -403,13 +421,13 @@ margin-top: 20px !important;
 
 .partners-intro .section-title {
     font-size: var(--font-size-3xl);
-    font-weight: 400;
+    font-weight: 300;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
 
 .partners-description {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     color: var(--secondary-color);
     max-width: 600px;
     margin: 0 auto;

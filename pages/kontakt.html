@@ -37,10 +37,25 @@
         </div>
     </section>
 
-    <!-- Full Width Photo Section -->
-    <section class="contact-photo-section">
-        <div class="contact-photo-container">
-            <img id="contact-hero-image" class="contact-hero-image" alt="TOP INTERIER - Naše kuchyne a interiéry">
+    <!-- Map Hero Section -->
+    <section class="map-hero-section">
+        <div class="map-hero-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.5!2d17.627!3d48.115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b9d7a8a37820d:0xdb9072a673a224d5!2sMlynsk%C3%A1%204629%2F2A%2C%20929%2001%20Dunajsk%C3%A1%20Streda!5e0!3m2!1sen!2ssk!4v1635789123456!5m2!1sen!2ssk"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="TOP INTERIER s.r.o. - Mlynská 4629/2A, Dunajská Streda">
+            </iframe>
+            <!-- Map Interaction Overlay -->
+            <div class="map-overlay" id="map-overlay">
+                <div class="map-click-hint">
+                    <p>Kliknite pre interakciu s mapou</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -48,57 +63,40 @@
     <section class="contact-content">
         <div class="container">
             <div class="contact-layout">
-                <!-- Contact Info Section - Left 1/3 -->
-                <div class="contact-info-section">
-                    <div class="contact-info-content">
-                        <span class="main-accent-line"></span>
-                        <h2 class="location-main-heading">TOP INTERIER, spol. s r.o.                        </h2>
-                        
-                        
-                        
-                        <div class="address-info">
-                            <p><strong>Adresa:</strong></p>
-                            <p>Mlynská 4629/2A<br>
-                            929 01 Dunajská Streda<br>
-                            Slovensko</p>
-                        </div>
-                        
-                        <div class="contact-details">
-                            <div class="contact-person">
-                                <p><strong>Monika Morafková Peterková</strong></p>
-                                <p><a href="tel:+421903808111">+421 903 808 111</a></p>
-                                <p><a href="mailto:topinteriersro@gmail.com">topinteriersro@gmail.com</a></p>
-                            </div>
-                            
-                            <div class="contact-person">
-                                <p><strong>Showroom</strong></p>
-                                <p><a href="tel:+421918513163">+421 918 513 163</a></p>
-                                <p>Po - Pi: 09:00 - 17:00</p>
-                            </div>
-                            
-                            <div class="contact-person">
-                                <p><strong>Otváracie hodiny</strong></p>
-                                <p>Pondelok - Piatok</p>
-                                <p>09:00 - 17:00</p>
-                                <p>Iný čas na základe dohody</p>
-                            </div>
-                        </div>
+                <!-- Photo Section - Left 1/2 -->
+                <div class="contact-photo-section">
+                    <div class="contact-photo-container">
+                        <img id="contact-hero-image" class="contact-hero-image" alt="TOP INTERIER - Naše kuchyne a interiéry">
                     </div>
                 </div>
                 
-                <!-- Map Section - Right 1/3 -->
-                <div class="contact-map-section">
-                    <div class="location-map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.5!2d17.627!3d48.115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b9d7a8a37820d:0xdb9072a673a224d5!2sMlynsk%C3%A1%204629%2F2A%2C%20929%2001%20Dunajsk%C3%A1%20Streda!5e0!3m2!1sen!2ssk!4v1635789123456!5m2!1sen!2ssk"
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="TOP INTERIER s.r.o. - Mlynská 4629/2A, Dunajská Streda">
-                        </iframe>
+                <!-- Contact Info Section - Right 1/2 -->
+                <div class="contact-info-section">
+                    <div class="contact-info-content">
+                        <div class="main-heading-container">
+                            <div class="heading-left">
+                                <h2 class="location-main-heading">TOP INTERIER, spol. s r.o.</h2>
+                                <div class="address-info-header">
+                                    <p>Mlynská 4629/2A</p>
+                                    <p>929 01 Dunajská Streda</p>
+                                    <p>Slovensko</p>
+                                </div>
+                                <div class="contact-person">
+                                    <p><strong>Monika Morafková Peterková</strong><br>
+                                    <a href="tel:+421903808111">+421 903 808 111</a></p>
+                                    <p><strong>Showroom</strong><br>
+                                    <a href="tel:+421918513163">+421 918 513 163</a></p>
+                                    <p><a href="mailto:topinteriersro@gmail.com">topinteriersro@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="heading-right">
+                                <div class="company-registration-header">
+                                    <p><strong>IČO:</strong> 36239585</p>
+                                    <p><strong>IČ DPH:</strong> SK2020197839</p>
+                                    <p><strong>IBAN:</strong> SK32 1100 0000 0026 2021 0876</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +110,7 @@
     <script src="../js/fallback-components.js?v=3.0"></script>
     <script src="../js/gsap-simple.js?v=3.0"></script>
 
-    <!-- Fixed Image Loader Script -->
+    <!-- Fixed Image Loader and Map Interaction Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Use first image from homepage hero slider
@@ -122,6 +120,31 @@
             const heroImage = document.getElementById('contact-hero-image');
             if (heroImage) {
                 heroImage.src = heroImageSrc;
+            }
+            
+            // Map interaction functionality
+            const mapOverlay = document.getElementById('map-overlay');
+            const mapContainer = document.querySelector('.map-hero-container');
+            
+            if (mapOverlay && mapContainer) {
+                // Activate map on overlay click
+                mapOverlay.addEventListener('click', function() {
+                    mapOverlay.classList.add('map-active');
+                });
+                
+                // Deactivate map when clicking outside the map area
+                document.addEventListener('click', function(event) {
+                    const isMapArea = mapContainer.contains(event.target);
+                    
+                    if (!isMapArea && mapOverlay.classList.contains('map-active')) {
+                        mapOverlay.classList.remove('map-active');
+                    }
+                });
+                
+                // Prevent clicks inside map container from bubbling up
+                mapContainer.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                });
             }
         });
     </script>

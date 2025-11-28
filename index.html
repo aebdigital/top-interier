@@ -22,6 +22,8 @@
     <!-- Component CSS -->
     <link rel="stylesheet" href="css/components/header.css?v=1761359098">
     <link rel="stylesheet" href="css/components/footer.css?v=1761359098">
+    <!-- Project card styling -->
+    <link rel="stylesheet" href="css/referencie.css?v=1761359098">
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="css/home.css?v=1761359098">
     <!-- Local SangBleu Sans Font (loaded via CSS @font-face) -->
@@ -157,7 +159,7 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-left">
+                <div class="about-centered">
                     <div class="about-header">
                         <span class="about-accent-line"></span>
                         <h2 class="about-title">Interiér na mieru od roku 2000</h2>
@@ -176,12 +178,6 @@
                         <a href="pages/kontakt.html" class="about-cta-btn">KONTAKTUJTE NÁS</a>
                     </div>
                 </div>
-                
-                <div class="about-right">
-                    <div class="about-image">
-                        <img class="random-hero-image" alt="TOP INTERIER kuchyne na mieru">
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -194,75 +190,20 @@
         <div class="container">
             <span class="about-accent-line"></span>
             <h2 class="section-title" data-text="Galéria">Referencie</h2>
-            <div class="gallery-grid">
-                
-                
-                <div class="gallery-item">
-                    <a href="pages/referencie.html" class="gallery-link">
-                        <div class="gallery-image-container">
-                            <img class="random-image" alt="TOP INTERIER - kuchyne na mieru" loading="lazy">
-                        </div>
-                    </a>
+            <div class="gallery-slider-container">
+                <div class="gallery-slider" id="home-gallery">
+                    <!-- Gallery items will be populated by JavaScript -->
                 </div>
-                <div class="gallery-item">
-                    <a href="pages/referencie.html" class="gallery-link">
-                        <div class="gallery-image-container">
-                            <img class="random-image" alt="TOP INTERIER - moderné kuchyne" loading="lazy">
-                        </div>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <a href="pages/referencie.html" class="gallery-link">
-                        <div class="gallery-image-container">
-                            <img class="random-image" alt="TOP INTERIER - 3D návrhy kuchýň" loading="lazy">
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="gallery-item">
-                    <a href="pages/referencie.html" class="gallery-link">
-                        <div class="gallery-image-container">
-                            <img class="random-image" alt="TOP INTERIER - nábytok na mieru" loading="lazy">
-                        </div>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <a href="pages/referencie.html" class="gallery-link">
-                        <div class="gallery-image-container">
-                            <img class="random-image" alt="TOP INTERIER - klasické kuchyne" loading="lazy">
-                        </div>
-                    </a>
-                </div>
-                
-                
-                <div class="gallery-item">
-                    <a href="pages/referencie.html" class="gallery-link">
-                        <div class="gallery-image-container">
-                            <img class="random-image" alt="TOP INTERIER - luxusné interiéry" loading="lazy">
-                        </div>
-                    </a>
-                </div>
-                
-               
-                <div class="gallery-item">
-                    <a href="pages/referencie.html" class="gallery-link">
-                        <div class="gallery-image-container">
-                            <img class="random-image" alt="TOP INTERIER - showroom Dunajská Streda" loading="lazy">
-                        </div>
-                    </a>
-                </div>
-                <div class="gallery-item gallery-all-projects">
-                    <a href="pages/referencie.html" class="gallery-all-link">
-                        <div class="gallery-all-content">
-                            <h3>Všetky referencie</h3>
-                            <div class="gallery-all-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <button class="gallery-arrow gallery-arrow-prev" aria-label="Previous">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="gallery-arrow gallery-arrow-next" aria-label="Next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -295,15 +236,23 @@
                 'sources/vizualizacie/Rodinny dom Dunajska streda/viz_310.jpg'
             ];
             
-            // Gallery images mixing interior and visualization photos
+            // Enhanced gallery mixing references and visualization projects
             const galleryImages = [
+                // References from sources 2 folder
                 'sources/sources 2/07.jpg',
-                'sources/vizualizacie/Bratislava Skypark/viz_286.jpg',
                 'sources/sources 2/34.jpg',
-                'sources/vizualizacie/Rodinny Dom Bratislava/2.jpg',
                 'sources/sources 2/42.jpg',
-                'sources/vizualizacie/Rodinny dom Dunajska streda/viz_311.jpg',
-                'sources/sources 2/44.jpg'
+                'sources/sources 2/44.jpg',
+                'sources/sources 2/49.jpg',
+                'sources/sources 2/51.jpg',
+                'sources/sources 2/54.jpg',
+                // Visualization projects
+                'sources/vizualizacie/Bratislava Skypark/viz_283.jpg',
+                'sources/vizualizacie/Bratislava Skypark/viz_286.jpg',
+                'sources/vizualizacie/Rodinny Dom Bratislava/viz_328.jpg',
+                'sources/vizualizacie/Rodinny Dom Bratislava/2.jpg',
+                'sources/vizualizacie/Rodinny dom Dunajska streda/viz_310.jpg',
+                'sources/vizualizacie/Rodinny dom Dunajska streda/viz_311.jpg'
             ];
             
             // Function to get random image from interior collection
@@ -322,25 +271,177 @@
             heroImageElements.forEach(function(img, index) {
                 if (index < heroVizImages.length) {
                     img.src = heroVizImages[index];
+                    console.log(`Hero image ${index} loaded: ${heroVizImages[index]}`);
                 } else {
                     img.src = getRandomImage();
+                }
+                // Force the first image to be visible
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.classList.add('active');
                 }
             });
             
-            // Assign mixed gallery images
-            const galleryImageElements = document.querySelectorAll('.gallery-grid .random-image');
-            galleryImageElements.forEach(function(img, index) {
-                if (index < galleryImages.length) {
-                    img.src = galleryImages[index];
-                } else {
-                    img.src = getRandomImage();
+            // Create infinite gallery slider
+            const homeGallery = document.getElementById('home-gallery');
+            if (homeGallery) {
+                const galleryItems = [
+                    // References portfolio items
+                    { image: galleryImages[0], alt: 'TOP INTERIER - moderná kuchyňa na mieru', title: 'Moderná kuchyňa', type: 'reference' },
+                    { image: galleryImages[1], alt: 'TOP INTERIER - dizajnový interiér', title: 'Dizajnový interiér', type: 'reference' },
+                    { image: galleryImages[2], alt: 'TOP INTERIER - pracovný priestor', title: 'Pracovný priestor', type: 'reference' },
+                    { image: galleryImages[3], alt: 'TOP INTERIER - komplexný interiér', title: 'Komplexný interiér', type: 'reference' },
+                    { image: galleryImages[4], alt: 'TOP INTERIER - luxusná kuchyňa', title: 'Luxusná kuchyňa', type: 'reference' },
+                    { image: galleryImages[5], alt: 'TOP INTERIER - moderný štýl', title: 'Moderný štýl', type: 'reference' },
+                    { image: galleryImages[6], alt: 'TOP INTERIER - tradičný charakter', title: 'Tradičný charakter', type: 'reference' },
+                    // Visualization projects
+                    { image: galleryImages[7], alt: 'Bratislava Skypark - 3D vizualizácia', title: 'Bratislava Skypark', type: 'visualization' },
+                    { image: galleryImages[8], alt: 'Bratislava Skypark - moderný apartmán', title: 'Skypark Apartment', type: 'visualization' },
+                    { image: galleryImages[9], alt: 'Rodinný Dom Bratislava - 3D návrh', title: 'Dom Bratislava', type: 'visualization' },
+                    { image: galleryImages[10], alt: 'Bratislava rodinný dom - interiér', title: 'Bratislava Interior', type: 'visualization' },
+                    { image: galleryImages[11], alt: 'Dunajská Streda - rodinný dom', title: 'Dom Dunajská Streda', type: 'visualization' },
+                    { image: galleryImages[12], alt: 'Dunajská Streda - moderný dizajn', title: 'Moderný Dom DS', type: 'visualization' }
+                ];
+                
+                // Create infinite loop by triplicating items
+                const infiniteGalleryItems = [...galleryItems, ...galleryItems, ...galleryItems];
+                
+                // Create gallery slider items using vizualizacie card styling
+                infiniteGalleryItems.forEach(function(item) {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-slide vizualizacie-card';
+                    const linkHref = item.type === 'visualization' ? 'pages/vizualizacie.html' : 'pages/referencie.html';
+                    galleryItem.innerHTML = `
+                        <a href="${linkHref}" class="gallery-link" style="text-decoration: none; color: inherit;">
+                            <div class="vizualizacie-card-container">
+                                <img src="${item.image}" alt="${item.alt}" loading="lazy">
+                                <div class="vizualizacie-card-overlay">
+                                    <div class="vizualizacie-card-title">${item.title}</div>
+                                    <div class="vizualizacie-card-description">${item.type === 'visualization' ? '3D Vizualizácia' : 'Realizovaný projekt'}</div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    homeGallery.appendChild(galleryItem);
+                });
+                
+                // Add "View All" button at the end
+                const viewAllItem = document.createElement('div');
+                viewAllItem.className = 'gallery-slide gallery-all-projects';
+                viewAllItem.innerHTML = `
+                    <a href="pages/referencie.html" class="gallery-all-link">
+                        <div class="gallery-all-content">
+                            <h3>Všetky referencie</h3>
+                            <div class="gallery-all-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                `;
+                homeGallery.appendChild(viewAllItem);
+                
+                // Initialize slider functionality
+                let currentSlideIndex = galleryItems.length; // Start from middle set
+                let isSliderMoving = false;
+                
+                const slider = document.querySelector('.gallery-slider');
+                const prevButton = document.querySelector('.gallery-arrow-prev');
+                const nextButton = document.querySelector('.gallery-arrow-next');
+                
+                function updateSliderPosition() {
+                    if (!slider) return;
+                    let slideWidth = 355; // default 350px width + 5px gap
+                    
+                    // Adjust for responsive breakpoints
+                    if (window.innerWidth <= 480) {
+                        slideWidth = 305; // 300px + 5px
+                    } else if (window.innerWidth <= 768) {
+                        slideWidth = 325; // 320px + 5px
+                    }
+                    
+                    slider.style.transform = `translateX(-${currentSlideIndex * slideWidth}px)`;
                 }
-            });
+                
+                function slideToNext() {
+                    if (isSliderMoving) return;
+                    isSliderMoving = true;
+                    
+                    currentSlideIndex++;
+                    updateSliderPosition();
+                    
+                    setTimeout(() => {
+                        if (currentSlideIndex >= galleryItems.length * 2) {
+                            slider.style.transition = 'none';
+                            currentSlideIndex = galleryItems.length;
+                            updateSliderPosition();
+                            setTimeout(() => {
+                                slider.style.transition = 'transform 0.5s ease';
+                            }, 50);
+                        }
+                        isSliderMoving = false;
+                    }, 500);
+                }
+                
+                function slideToPrev() {
+                    if (isSliderMoving) return;
+                    isSliderMoving = true;
+                    
+                    currentSlideIndex--;
+                    updateSliderPosition();
+                    
+                    setTimeout(() => {
+                        if (currentSlideIndex < galleryItems.length) {
+                            slider.style.transition = 'none';
+                            currentSlideIndex = galleryItems.length * 2 - 1;
+                            updateSliderPosition();
+                            setTimeout(() => {
+                                slider.style.transition = 'transform 0.5s ease';
+                            }, 50);
+                        }
+                        isSliderMoving = false;
+                    }, 500);
+                }
+                
+                // Initialize slider
+                setTimeout(() => {
+                    updateSliderPosition();
+                    slider.style.transition = 'transform 0.5s ease';
+                }, 100);
+                
+                // Add event listeners
+                if (nextButton) nextButton.addEventListener('click', slideToNext);
+                if (prevButton) prevButton.addEventListener('click', slideToPrev);
+                
+                // Handle window resize
+                window.addEventListener('resize', updateSliderPosition);
+            }
             
             // Set random image for about section
             const aboutImage = document.querySelector('.about-image .random-hero-image');
             if (aboutImage) {
                 aboutImage.src = getRandomImage();
+            }
+            
+            // Hero background slider functionality
+            const heroBackgroundImages = document.querySelectorAll('.hero-bg-image');
+            if (heroBackgroundImages.length > 0) {
+                let currentHeroIndex = 0;
+                
+                function switchHeroBackground() {
+                    // Remove active class from all images
+                    heroBackgroundImages.forEach(img => img.classList.remove('active'));
+                    
+                    // Add active class to current image
+                    heroBackgroundImages[currentHeroIndex].classList.add('active');
+                    
+                    // Move to next image
+                    currentHeroIndex = (currentHeroIndex + 1) % heroBackgroundImages.length;
+                }
+                
+                // Start the hero background slider
+                setInterval(switchHeroBackground, 5000); // Change every 5 seconds
             }
         });
     </script>
@@ -348,35 +449,32 @@
     <!-- GSAP Hero Parallax Effect -->
     <script>
         window.addEventListener('load', () => {
-            // GSAP parallax effect for hero background images
-            const heroBgImages = document.querySelectorAll('.hero-bg-image');
-            
-            if (heroBgImages.length > 0) {
-                // Set initial scale and animate to normal scale (reduced from 1.12 to 1.06)
-                gsap.set('.hero-bg-image', {scale: 1.06});
+            // Wait for images to load before setting up parallax
+            setTimeout(() => {
+                // GSAP parallax effect for hero background images
+                const heroBgImages = document.querySelectorAll('.hero-bg-image');
                 
-                gsap.timeline({defaults: {ease: "power2.out"}})
-                    .to('.hero-bg-image', {
-                        scale: 1, 
-                        duration: 1.2
-                    }, 0);
-            }
-            
-            // Add continuous scroll-based parallax effect (reduced from -50 to -20)
-            if (typeof ScrollTrigger !== 'undefined') {
-                gsap.registerPlugin(ScrollTrigger);
-                
-                gsap.to('.hero-bg-image', {
-                    yPercent: -20,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ".hero",
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
-                    }
-                });
-            }
+                // Add continuous scroll-based parallax effect
+                if (typeof ScrollTrigger !== 'undefined' && heroBgImages.length > 0) {
+                    gsap.registerPlugin(ScrollTrigger);
+                    
+                    gsap.fromTo('.hero-bg-image', 
+                        {
+                            yPercent: 0
+                        },
+                        {
+                            yPercent: -20,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: ".hero",
+                                start: "top center",
+                                end: "bottom top",
+                                scrub: true
+                            }
+                        }
+                    );
+                }
+            }, 500); // Wait 500ms for images to load
         });
     </script>
 </body>

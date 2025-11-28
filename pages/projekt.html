@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags - will be dynamically updated -->
+    <title id="page-title">Projekt - TOP INTERIER s.r.o.</title>
+    <meta name="description" id="page-description" content="3D vizualizácia interiéru od TOP INTERIER s.r.o.">
+    <meta name="keywords" id="page-keywords" content="projekt, vizualizácia, interiér">
+    
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../css/base.css?v=3.0">
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="../css/components/header.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/footer.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/hero.css?v=3.0">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="../css/project-detail.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/lightbox.css?v=3.0">
+    
+    <!-- GSAP and Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Container -->
+    <div id="navigation-container"></div>
+
+    <!-- Project Detail Container -->
+    <section class="project-detail-container">
+        <!-- Left Sidebar - Project Info -->
+        <div class="project-info-sidebar">
+            <div class="project-info-content">
+                <span class="project-accent-line"></span>
+                <h1 id="project-title" class="project-title">Načítava sa...</h1>
+                
+                <div id="project-description" class="project-description">
+                    <p>Načítava sa popis projektu...</p>
+                </div>
+                
+                <div id="project-meta" class="project-meta">
+                    <!-- Meta information will be loaded dynamically -->
+                </div>
+                
+                <a href="vizualizacie.html" class="back-to-vizualizacie">
+                    ← Späť na vizualizácie
+                </a>
+            </div>
+        </div>
+        
+        <!-- Right Content - Photo Gallery -->
+        <div class="project-gallery-content">
+            <div class="project-gallery-grid" id="gallery-grid">
+                <!-- Main hero photo will be loaded here -->
+            </div>
+            <div class="project-gallery-thumbnails" id="gallery-thumbnails">
+                <!-- Thumbnail photos will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Load components directly with fallback -->
+    <script src="../js/fallback-components.js?v=3.0"></script>
+    <script src="../js/gsap-simple.js?v=3.0"></script>
+    <script src="../js/components/lightbox.js?v=3.0"></script>
+    
+    <!-- Dynamic Project Data -->
+    <script>
+        // Project data configuration
+        const projectsData = {
+            'bratislava-skypark': {
+                title: 'Bratislava Skypark',
+                description: [
+                    'Moderný apartmán v prestížnej lokalite Bratislava Skypark navrhnutý s dôrazom na luxus a komfort. Dizajn spája súčasné trendy s nadčasovou eleganciou.',
+                    'Projekt zdôrazňuje maximálne využitie prirodzeného svetla a panoramatického výhľadu na mesto. Každý detail bol navrhnutý s ohľadom na funkcionalitu a estetiku moderného bývania.',
+                    'Použité materiály a farby vytvárajú harmonickú atmosféru, ktorá odráža životný štýl modernej rodiny v srdci Bratislavy.'
+                ],
+                meta: [
+                    { label: 'Typ', value: 'Apartmán' },
+                    { label: 'Lokalita', value: 'Bratislava Skypark' }
+                ],
+                folder: 'Bratislava Skypark',
+                images: ['1.jpg', '2.jpg', '3.jpg', 'viz_283.jpg', 'viz_286.jpg'],
+                seoTitle: 'Bratislava Skypark - TOP INTERIER s.r.o.',
+                seoDescription: '3D vizualizácia moderného apartmánu v Bratislava Skypark - luxusný interiér s panoramatickým výhľadom.',
+                seoKeywords: 'Bratislava Skypark, apartmán, vizualizácia, interiér'
+            },
+            'rodinny-dom-bratislava': {
+                title: 'Rodinný Dom Bratislava',
+                description: [
+                    'Elegantný rodinný dom v Bratislave navrhnutý pre moderný životný štýl. Interiér kombinuje funkčnosť s nadčasovým dizajnom.',
+                    'Projekt kladie dôraz na prirodzené materiály a svetlé farby, ktoré vytvárajú príjemnú a útulnú atmosféru pre celú rodinu.',
+                    'Každá miestnosť bola navrhnutá s ohľadom na potreby modernej rodiny s dôrazom na kvalitu a detail.'
+                ],
+                meta: [
+                    { label: 'Typ', value: 'Rodinný dom' },
+                    { label: 'Lokalita', value: 'Bratislava' }
+                ],
+                folder: 'Rodinny Dom Bratislava',
+                images: ['1.jpg', '2.jpg', '3.jpg', '5.jpg', 'viz_328.jpg'],
+                seoTitle: 'Rodinný Dom Bratislava - TOP INTERIER s.r.o.',
+                seoDescription: '3D vizualizácia rodinného domu v Bratislave - moderný interiér pre komfortné bývanie.',
+                seoKeywords: 'rodinný dom, Bratislava, vizualizácia, interiér'
+            },
+            'rodinny-dom-dunajska-streda': {
+                title: 'Rodinný Dom Dunajská Streda',
+                description: [
+                    'Krásny rodinný dom v Dunajskej Strede navrhnutý s láskou k detailu. Interiér spája tradičné hodnoty s modernými prvkami.',
+                    'Projekt reflektuje potreby súčasného bývania s dôrazom na pohodlie a funkcionalitu každého priestoru.',
+                    'Použité materiály a farebné riešenia vytvárajú harmonický celok, ktorý odráža osobnosť majiteľov.'
+                ],
+                meta: [
+                    { label: 'Typ', value: 'Rodinný dom' },
+                    { label: 'Lokalita', value: 'Dunajská Streda' }
+                ],
+                folder: 'Rodinny dom Dunajska streda',
+                images: ['1.jpg', 'viz_310.jpg', 'viz_311.jpg', 'viz_312.jpg', 'viz_313.jpg'],
+                seoTitle: 'Rodinný Dom Dunajská Streda - TOP INTERIER s.r.o.',
+                seoDescription: '3D vizualizácia rodinného domu v Dunajskej Strede - elegantný interiér s dôrazom na detail.',
+                seoKeywords: 'rodinný dom, Dunajská Streda, vizualizácia, interiér'
+            }
+        };
+
+        function getProjectIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('projekt') || urlParams.get('id');
+        }
+
+        function loadProjectData(projectId) {
+            const project = projectsData[projectId];
+            
+            if (!project) {
+                // If project not found, redirect to visualizations page
+                window.location.href = 'vizualizacie.html';
+                return;
+            }
+
+            // Update SEO meta tags
+            document.getElementById('page-title').textContent = project.seoTitle;
+            document.getElementById('page-description').setAttribute('content', project.seoDescription);
+            document.getElementById('page-keywords').setAttribute('content', project.seoKeywords);
+            document.title = project.seoTitle;
+
+            // Update project content
+            document.getElementById('project-title').textContent = project.title;
+            
+            // Update description
+            const descriptionContainer = document.getElementById('project-description');
+            descriptionContainer.innerHTML = '';
+            project.description.forEach(paragraph => {
+                const p = document.createElement('p');
+                p.textContent = paragraph;
+                descriptionContainer.appendChild(p);
+            });
+
+            // Update meta information
+            const metaContainer = document.getElementById('project-meta');
+            metaContainer.innerHTML = '';
+            project.meta.forEach(item => {
+                const metaItem = document.createElement('div');
+                metaItem.className = 'project-meta-item';
+                metaItem.innerHTML = `
+                    <span class="meta-label">${item.label}</span>
+                    <span class="meta-value">${item.value}</span>
+                `;
+                metaContainer.appendChild(metaItem);
+            });
+
+            // Load gallery
+            loadGallery(project.images, project.folder);
+            
+            // Initialize lightbox after gallery is loaded
+            setTimeout(() => {
+                if (typeof initLightbox === 'function') {
+                    initLightbox();
+                    // Create image paths for lightbox
+                    const imagePaths = project.images.map(img => `../sources/vizualizacie/${project.folder}/${img}`);
+                    initGalleryLightbox(imagePaths);
+                }
+            }, 100);
+        }
+        
+        function loadGallery(images, folder) {
+            const galleryGrid = document.getElementById('gallery-grid');
+            const galleryThumbnails = document.getElementById('gallery-thumbnails');
+            
+            images.forEach((image, index) => {
+                if (index === 0) {
+                    // First image - main hero photo
+                    const heroItem = document.createElement('div');
+                    heroItem.className = 'project-gallery-item';
+                    
+                    const heroImg = document.createElement('img');
+                    heroImg.src = `../sources/vizualizacie/${folder}/${image}`;
+                    heroImg.alt = `${folder} - hlavný obrázok`;
+                    heroImg.loading = 'eager';
+                    
+                    heroItem.appendChild(heroImg);
+                    galleryGrid.appendChild(heroItem);
+                } else {
+                    // Other images - thumbnails in 3-per-row grid
+                    const thumbItem = document.createElement('div');
+                    thumbItem.className = 'project-gallery-item';
+                    
+                    const thumbImg = document.createElement('img');
+                    thumbImg.src = `../sources/vizualizacie/${folder}/${image}`;
+                    thumbImg.alt = `${folder} - obrázok ${index + 1}`;
+                    thumbImg.loading = 'lazy';
+                    
+                    thumbItem.appendChild(thumbImg);
+                    galleryThumbnails.appendChild(thumbItem);
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lenis smooth scrolling
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+                infinite: false,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+            
+            // Load project based on URL parameter
+            const projectId = getProjectIdFromUrl();
+            if (projectId) {
+                loadProjectData(projectId);
+            } else {
+                // If no project ID, redirect to visualizations page
+                window.location.href = 'vizualizacie.html';
+            }
+        });
+    </script>
+</body>
+</html>

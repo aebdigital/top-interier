@@ -53,10 +53,8 @@ function bindFilterEvents() {
             // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
             
-            // Add active class to clicked button (except show-all)
-            if (!button.classList.contains('show-all')) {
-                button.classList.add('active');
-            }
+            // Add active class to clicked button
+            button.classList.add('active');
             
             // Apply filter
             applyFilter(filterId);
@@ -66,7 +64,8 @@ function bindFilterEvents() {
     // Set "Všetky kategórie" as default active
     const showAllBtn = filterContainer.querySelector('.filter-category.show-all');
     if (showAllBtn) {
-        showAllBtn.click();
+        showAllBtn.classList.add('active');
+        applyFilter('all');
     }
 }
 

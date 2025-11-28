@@ -15,7 +15,7 @@
 }
 
 .filter-container {
-    background: #f8f9fa;
+    background: rgb(248, 249, 250);
     border-radius: 8px;
     padding: 30px 25px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -24,12 +24,14 @@
 }
 
 .filter-title {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 300;
     color: #333;
     margin: 0 0 25px 0;
     text-align: center;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .filter-categories {
@@ -39,6 +41,7 @@
 }
 
 .filter-category {
+    font-family: 'Montserrat', sans-serif;
     background: #ffffff;
     border: 2px solid #e9ecef;
     border-radius: 6px;
@@ -46,10 +49,11 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 300;
     color: #555;
     text-align: center;
-    letter-spacing: 0.3px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     position: relative;
     overflow: hidden;
 }
@@ -66,11 +70,11 @@
 }
 
 .filter-category:hover {
-    background: #333;
+    background: #C0B283;
     color: white;
-    border-color: #333;
+    border-color: #C0B283;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(192, 178, 131, 0.3);
 }
 
 .filter-category:hover::before {
@@ -78,24 +82,16 @@
 }
 
 .filter-category.active {
-    background: var(--primary-color, #333);
+    background: #C0B283;
     color: white;
-    border-color: var(--primary-color, #333);
+    border-color: #C0B283;
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(192, 178, 131, 0.3);
 }
 
 .filter-category.show-all {
-    background: #333;
-    color: white;
-    border-color: #333;
     margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.filter-category.show-all:hover {
-    background: #555;
-    border-color: #555;
+    font-weight: 300;
 }
 
 .main-content {

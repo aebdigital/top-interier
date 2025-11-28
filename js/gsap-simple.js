@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 2. SCROLL ANIMATIONS (only animate elements that exist)
     
-    // Generic section animations
-    const sections = document.querySelectorAll('section');
+    // Generic section animations (exclude hero section)
+    const sections = document.querySelectorAll('section:not(.hero)');
     sections.forEach(section => {
         gsap.fromTo(section, 
             { 

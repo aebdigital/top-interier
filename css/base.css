@@ -102,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: var(--font-size-5xl);
-    font-weight: 400;
+    font-weight: 300;
 }
 
 h2 {
@@ -112,7 +112,7 @@ h2 {
 
 h3 {
     font-size: var(--font-size-2xl);
-    font-weight: 400;
+    font-weight: 300;
 }
 
 h4 {
@@ -127,7 +127,7 @@ h5 {
 
 h6 {
     font-size: var(--font-size-base);
-    font-weight: 400;
+    font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -233,33 +233,33 @@ p:last-child {
 
 /* Section Background Gradients */
 section {
-    background: var(--section-bg-gradient);
+    background: #f5eeea;
     position: relative;
 }
 
 section:nth-child(even) {
-    background: var(--section-bg-gradient-alt);
+    background: #f5eeea;
 }
 
 section:nth-child(3n) {
-    background: var(--section-bg-gradient-warm);
+    background: #f5eeea;
 }
 
 /* Specific section overrides */
 .hero {
-    background: linear-gradient(180deg, rgba(245, 235, 231, 0) 70%, rgba(245, 235, 231, 1) 100%);
+    background: #f5eeea;
 }
 
 .about {
-    background: transparent;
+    background: #f5eeea;
 }
 
 .home-products {
-    background: linear-gradient(180deg, rgba(245, 235, 231, 0) 70%, rgba(245, 235, 231, 1) 100%);
+    background: #f5eeea;
 }
 
 .gallery {
-    background: linear-gradient(180deg, rgba(245, 235, 231, 0) 70%, rgba(245, 235, 231, 1) 100%);
+    background: #f5eeea;
 }
 
 /* Cookie Consent Styles */

@@ -19,8 +19,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -2;
+    background: #f5eeea;
 }
 
 .hero-bg-image {
@@ -28,12 +29,16 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 120%;
+    height: 100vh;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center center;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    will-change: transform;
+    will-change: transform, opacity;
+}
+
+.hero-bg-image:first-child {
+    opacity: 1;
 }
 
 .hero-bg-image.active {
@@ -128,7 +133,7 @@
 
 .hero-title {
     font-size: var(--font-size-5xl);
-    font-weight: 500;
+    font-weight: 300;
     line-height: var(--line-height-tight);
     margin-bottom: 20px;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -172,7 +177,7 @@
 .cta-btn.primary {
     background: var(--primary-color);
     color: white;
-    border: 2px solid transparent;
+    border: 2px solid var(--primary-color);
 }
 
 .cta-btn.primary:hover {
@@ -211,7 +216,7 @@
 
 .stat-number {
     font-size: var(--font-size-4xl);
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
@@ -228,66 +233,7 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Removed unused testimonial components */
-
-/* Home Products Section */
-.home-products {
-    padding: 80px 0;
-    background: #f6efeb;
-}
-
-/* Removed unused product grid components */
-
-/* Responsive Design for Products Grid */
-@media (max-width: 1200px) {
-    .products-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-    
-    .product-box {
-        min-height: 350px;
-    }
-}
-
-@media (max-width: 900px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .product-box {
-        min-height: 320px;
-    }
-    
-    .product-title {
-        font-size: var(--font-size-base);
-    }
-}
-
-@media (max-width: 600px) {
-    .home-products {
-        padding: 60px 0;
-    }
-    
-    .products-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        width: 100%;
-        max-width: 100%;
-    }
-    .stat-label {
-        font-size: var(--font-size-xs);
-        opacity: 0.8;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    
-    .product-box {
-        min-height: 300px;
-    }
-}
+/* Cleaned up unused product styles */
 
 /* Extra small mobile phones */
 @media (max-width: 480px) {
@@ -302,24 +248,24 @@
 
     .stat-number {
         font-size: var(--font-size-xl);
-        font-weight: 700;
+        font-weight: 300;
         line-height: 1;
         text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
     
-    .product-title {
-        font-size: 1.1rem;
-    }
-    
-    .product-content {
-        padding: 15px 10px 10px;
+    .stat-label {
+        font-size: var(--font-size-xs);
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 }
 
 /* About Section */
 .about {
     position: relative;
-    padding: 120px 0;
+    padding: 80px 0;
     min-height: auto;
     display: flex;
     align-items: center;
@@ -350,30 +296,29 @@
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: flex-start;
+    display: flex;
+    justify-content: center;
     color: #000000;
     z-index: 1;
 }
 
-@media (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+.about-centered {
+    max-width: 800px;
+    text-align: center;
 }
 
-.about-left {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+@media (max-width: 768px) {
+    .about-centered {
+        max-width: 100%;
+        padding: 0 20px;
+    }
 }
 
 .about-header {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .about-accent-line {
@@ -381,15 +326,14 @@
     height: 3px;
     background: var(--primary-color);
     display: block;
-    margin-bottom: 15px;
 }
 
 .about-title {
     font-size: var(--font-size-3xl);
-    font-weight: 400;
+    font-weight: 300;
     color: #000000;
     line-height: var(--line-height-tight);
-    margin: 0;
+    margin-bottom: 30px;
 }
 
 .about-description {
@@ -484,37 +428,36 @@
     display: inline-block;
     background: var(--primary-color);
     color: white;
-    padding: 15px 40px;
-    font-weight: 600;
+    border: 2px solid var(--primary-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    border: none;
-    font-size: var(--font-size-sm);
     margin-top: 30px;
+    cursor: pointer;
 }
 
 .about-cta-btn:hover {
     background: rgba(51, 51, 51, 0.9);
-    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Removed unused certification section */
+/* Cleaned up unused certification section */
 
 /* Gallery Section */
 .gallery {
     padding: 80px 0 100px;
-    background: #f6efeb;
+    background: #f5eeea;
     overflow: hidden;
 }
 
 .gallery .section-title {
     font-size: var(--font-size-3xl);
-    font-weight: 400;
+    font-weight: 300;
     text-align: left;
     margin-bottom: 50px;
     color: #000;
@@ -523,7 +466,7 @@
 
 .section-title {
     font-size: var(--font-size-3xl);
-    font-weight: 400;
+    font-weight: 300;
     text-align: left;
     margin-bottom: 20px;
     color: #000;
@@ -539,80 +482,140 @@
     margin-right: auto;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+/* Gallery Slider Container */
+.gallery-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 80px;
+    margin: 0 auto;
+    max-width: calc(100% + 100px);
+}
+
+.gallery-slider {
+    display: flex;
     gap: 5px;
-    margin: 0 -50px;
-    width: calc(100% + 100px);
+    width: fit-content;
+    transition: transform 0.5s ease;
+}
+
+.gallery-slide {
+    flex-shrink: 0;
+    width: 350px;
+    height: 300px;
+}
+
+/* Override vizualizacie card styling for slider */
+.gallery-slider .vizualizacie-card {
+    width: 350px;
+    height: 300px;
+    margin: 0;
+    justify-self: unset;
+}
+
+/* Gallery Arrow Styles with Liquid Glass Effect */
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-arrow-prev {
+    left: 10px;
+}
+
+.gallery-arrow-next {
+    right: 10px;
+}
+
+.gallery-arrow svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
 }
 
 @media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        margin: 0;
-        width: 100%;
-        gap: 10px;
+    .gallery-slider-container {
+        padding: 0 60px;
+        margin: 0 auto;
+        max-width: calc(100% + 80px);
+    }
+    
+    .gallery-slide {
+        width: 320px;
+        height: 225px;
+    }
+    
+    .gallery-slider .vizualizacie-card {
+        width: 320px;
+        height: 225px;
+    }
+    
+    .gallery-arrow {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .gallery-arrow svg {
+        width: 18px;
+        height: 18px;
     }
 }
 
-.gallery-item {
-    position: relative;
-    overflow: hidden;
+@media (max-width: 480px) {
+    .gallery-slider-container {
+        padding: 0 50px;
+        margin: 0 auto;
+        max-width: calc(100% + 60px);
+    }
+    
+    .gallery-slide {
+        width: 300px;
+        height: 210px;
+    }
+    
+    .gallery-slider .vizualizacie-card {
+        width: 300px;
+        height: 210px;
+    }
+    
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .gallery-arrow svg {
+        width: 16px;
+        height: 16px;
+    }
 }
 
-.gallery-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
-
-.gallery-image-container {
-    position: relative;
-    overflow: hidden;
-    height: 250px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.gallery-image-container:hover {
-    transform: scale(1.03);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-    transition: transform 0.6s ease;
-}
-
-.gallery-image-container:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-overlay {
-    position: absolute;
-    left: 5%;
-    bottom: 5%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 13px;
-    border-radius: 0;
-    max-width: 80%;
-}
-
-.gallery-overlay h3 {
-    font-size: 14px;
-    font-weight: 600;
-    color: white;
-    margin: 0;
-    line-height: 1.0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+/* Removed conflicting gallery styles - now using vizualizacie-card styling */
 
 /* Gallery All Projects Button */
 .gallery-all-projects {
@@ -620,7 +623,7 @@
     align-items: center;
     justify-content: center;
     height: 250px;
-    background-image: linear-gradient(rgba(233, 214, 208, 0.4) 59.13%, rgba(225, 219, 214, 0) 100%);
+    background: #f5eeea;
     border: grey solid 0.5px;
     background-size: cover;
     background-position: center;
@@ -635,7 +638,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(233, 214, 208, 0.4) 59.13%, rgba(225, 219, 214, 0) 100%);
+    background: #f5eeea;
     text-decoration: none;
     color: black;
     position: relative;
