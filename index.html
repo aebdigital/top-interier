@@ -109,9 +109,9 @@
     <section id="home" class="hero">
         <!-- Hero Background -->
         <div class="hero-background">
-            <img class="hero-bg-image active random-hero-image" alt="TOP INTERIER kuchyne na mieru 1">
-            <img class="hero-bg-image random-hero-image" alt="TOP INTERIER kuchyne na mieru 2">
-            <img class="hero-bg-image random-hero-image" alt="TOP INTERIER kuchyne na mieru 3">
+            <img class="hero-bg-image active" src="sources/vizualizacie/Bratislava Skypark/viz_283.jpg" alt="TOP INTERIER kuchyne na mieru 1">
+            <img class="hero-bg-image" src="sources/vizualizacie/Rodinny Dom Bratislava/viz_328.jpg" alt="TOP INTERIER kuchyne na mieru 2">
+            <img class="hero-bg-image" src="sources/vizualizacie/Rodinny dom Dunajska streda/viz_310.jpg" alt="TOP INTERIER kuchyne na mieru 3">
         </div>
         
         <!-- Hero Content -->
@@ -266,21 +266,19 @@
                 img.src = getRandomImage();
             });
             
-            // Assign specific vizualizacie images to hero background
-            const heroImageElements = document.querySelectorAll('.random-hero-image');
-            heroImageElements.forEach(function(img, index) {
-                if (index < heroVizImages.length) {
-                    img.src = heroVizImages[index];
-                    console.log(`Hero image ${index} loaded: ${heroVizImages[index]}`);
-                } else {
-                    img.src = getRandomImage();
-                }
-                // Force the first image to be visible
-                if (index === 0) {
-                    img.style.opacity = '1';
-                    img.classList.add('active');
-                }
-            });
+            // Set hero background images with direct src attributes
+            const heroImageElements = document.querySelectorAll('.hero-bg-image');
+            if (heroImageElements.length >= 3) {
+                heroImageElements[0].src = heroVizImages[0];
+                heroImageElements[1].src = heroVizImages[1];  
+                heroImageElements[2].src = heroVizImages[2];
+                
+                // Make first image visible immediately
+                heroImageElements[0].style.opacity = '1';
+                heroImageElements[0].classList.add('active');
+                
+                console.log('Hero images loaded:', heroVizImages);
+            }
             
             // Create infinite gallery slider
             const homeGallery = document.getElementById('home-gallery');
@@ -424,57 +422,45 @@
                 aboutImage.src = getRandomImage();
             }
             
-            // Hero background slider functionality
-            const heroBackgroundImages = document.querySelectorAll('.hero-bg-image');
-            if (heroBackgroundImages.length > 0) {
-                let currentHeroIndex = 0;
-                
-                function switchHeroBackground() {
-                    // Remove active class from all images
-                    heroBackgroundImages.forEach(img => img.classList.remove('active'));
+            // Simple hero background slider
+            setTimeout(() => {
+                const heroImages = document.querySelectorAll('.hero-bg-image');
+                if (heroImages.length > 1) {
+                    let currentIndex = 0;
                     
-                    // Add active class to current image
-                    heroBackgroundImages[currentHeroIndex].classList.add('active');
+                    function rotateHeroImages() {
+                        // Hide all images
+                        heroImages.forEach(img => {
+                            img.style.opacity = '0';
+                            img.classList.remove('active');
+                        });
+                        
+                        // Show current image
+                        heroImages[currentIndex].style.opacity = '1';
+                        heroImages[currentIndex].classList.add('active');
+                        
+                        // Move to next image
+                        currentIndex = (currentIndex + 1) % heroImages.length;
+                    }
                     
-                    // Move to next image
-                    currentHeroIndex = (currentHeroIndex + 1) % heroBackgroundImages.length;
+                    // Start rotation every 4 seconds
+                    setInterval(rotateHeroImages, 4000);
                 }
-                
-                // Start the hero background slider
-                setInterval(switchHeroBackground, 5000); // Change every 5 seconds
-            }
+            }, 1000); // Wait 1 second before starting rotation
         });
     </script>
     
-    <!-- GSAP Hero Parallax Effect -->
+    <!-- Simple parallax effect (optional) -->
     <script>
-        window.addEventListener('load', () => {
-            // Wait for images to load before setting up parallax
-            setTimeout(() => {
-                // GSAP parallax effect for hero background images
-                const heroBgImages = document.querySelectorAll('.hero-bg-image');
-                
-                // Add continuous scroll-based parallax effect
-                if (typeof ScrollTrigger !== 'undefined' && heroBgImages.length > 0) {
-                    gsap.registerPlugin(ScrollTrigger);
-                    
-                    gsap.fromTo('.hero-bg-image', 
-                        {
-                            yPercent: 0
-                        },
-                        {
-                            yPercent: -20,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: ".hero",
-                                start: "top center",
-                                end: "bottom top",
-                                scrub: true
-                            }
-                        }
-                    );
-                }
-            }, 500); // Wait 500ms for images to load
+        // Optional: Add parallax effect after images are loaded
+        window.addEventListener('scroll', () => {
+            const heroImages = document.querySelectorAll('.hero-bg-image');
+            const scrolled = window.pageYOffset;
+            const parallax = scrolled * 0.5;
+            
+            heroImages.forEach(img => {
+                img.style.transform = `translateY(${parallax}px)`;
+            });
         });
     </script>
 </body>
