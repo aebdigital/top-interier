@@ -13,7 +13,7 @@
 :root {
     /* Color Variables */
     --primary-color: #333333;
-    --secondary-color: #666666;
+    --secondary-color: #333333;
     --accent-color: #ffffff;
     --background-color: #f6efeb;
     --text-color: #333333;
@@ -81,6 +81,9 @@ body {
     background-color: var(--background-color);
     scroll-behavior: auto;
     overscroll-behavior: none;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 /* Prevent background scrolling when modal/lightbox is open */
@@ -166,6 +169,12 @@ p:last-child {
     h1 { font-size: var(--font-size-4xl); }
     h2 { font-size: var(--font-size-2xl); }
     h3 { font-size: var(--font-size-xl); }
+    
+    p, li {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: rgb(51, 51, 51);
+    }
 }
 
 /* Container */
@@ -407,7 +416,7 @@ section:nth-child(3n) {
     background: none;
     border: none;
     font-size: 24px;
-    color: #666;
+    color: #333;
     cursor: pointer;
     padding: 5px;
     transition: color 0.3s ease;
@@ -497,7 +506,7 @@ section:nth-child(3n) {
 }
 
 .cookie-category-description {
-    color: #666;
+    color: #333;
     font-size: 0.9rem;
     line-height: 1.4;
     margin-top: 8px;

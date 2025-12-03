@@ -120,15 +120,33 @@
                 galleryItem.className = 'vizualizacie-card';
                 galleryItem.setAttribute('data-category', item.categories.join(','));
                 
-                galleryItem.innerHTML = `
-                    <div class="vizualizacie-card-container">
-                        <img src="${item.image}" alt="${item.title}" loading="lazy">
-                        <div class="vizualizacie-card-overlay">
-                            <div class="vizualizacie-card-title">${item.title}</div>
-                            <div class="vizualizacie-card-description">${item.description}</div>
+                // Add project detail links for first 3 projects only
+                const hasProjectDetail = index < 3;
+                const projectSlug = hasProjectDetail ? `referencia-${index + 1}` : null;
+                
+                if (hasProjectDetail) {
+                    galleryItem.innerHTML = `
+                        <a href="projekt.html?projekt=${projectSlug}" style="text-decoration: none; color: inherit;">
+                            <div class="vizualizacie-card-container">
+                                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                                <div class="vizualizacie-card-overlay">
+                                    <div class="vizualizacie-card-title">${item.title}</div>
+                                    <div class="vizualizacie-card-description">${item.description}</div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                } else {
+                    galleryItem.innerHTML = `
+                        <div class="vizualizacie-card-container">
+                            <img src="${item.image}" alt="${item.title}" loading="lazy">
+                            <div class="vizualizacie-card-overlay">
+                                <div class="vizualizacie-card-title">${item.title}</div>
+                                <div class="vizualizacie-card-description">${item.description}</div>
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                }
                 
                 galleryContainer.appendChild(galleryItem);
             });

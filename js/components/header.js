@@ -76,7 +76,7 @@ function loadNavigation() {
         <div class="mobile-sidebar">
             <div class="mobile-sidebar-header">
                 <div class="mobile-sidebar-logo">
-                    <span class="logo-text">TOP INTERIÉR</span>
+                    <span class="logo-text">TOP INTERIER</span>
                 </div>
                 <button class="mobile-close-btn">✕</button>
             </div>

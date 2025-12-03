@@ -55,16 +55,18 @@
 .logo-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.2rem;
-    font-weight: 300;
+    font-weight: 600;
     color: #333333;
     letter-spacing: 1px;
     text-align: left;
     transition: all 0.3s ease;
 }
 
-/* Smaller logo when navbar is scrolled */
-.navbar-transparent.scrolled .logo-text {
-    font-size: 1.8rem;
+/* Smaller logo when navbar is scrolled - desktop only */
+@media (min-width: 769px) {
+    .navbar-transparent.scrolled .logo-text {
+        font-size: 1.8rem;
+    }
 }
 
 .nav-logo {
@@ -237,11 +239,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 15px;
+    padding: 0 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background: #f6efeb;
+    background: white;
     max-width: 95%;
     margin: 0 auto;
+    min-height: 60px;
 }
 
 .mobile-sidebar-logo {
@@ -252,8 +255,8 @@
 
 .mobile-sidebar-logo .logo-text {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 1.8rem;
+    font-weight: 600;
     color: var(--primary-color);
     letter-spacing: 1px;
 }
@@ -290,7 +293,7 @@
 .mobile-nav-link {
     text-decoration: none;
     color: #333;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 20.8px; /* 30% bigger from 16px */
     padding: 18px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -376,9 +379,14 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
-        padding: 15px 20px;
+        padding: 0 15px;
         justify-content: space-between;
         position: relative;
+        max-width: 95%;
+        margin: 0 auto;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        background: white;
+        min-height: 60px;
     }
     
     .nav-menu {
@@ -402,17 +410,22 @@
     }
     
     .logo-text {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .nav-container {
-        padding: 12px 15px;
+        padding: 0 15px;
+        max-width: 95%;
+        margin: 0 auto;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        background: white;
+        min-height: 60px;
     }
     
     .logo-text {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
     
     .mobile-sidebar {
@@ -420,7 +433,7 @@
     }
     
     .mobile-sidebar-logo .logo-text {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
     }
     
     .nav-menu-left {

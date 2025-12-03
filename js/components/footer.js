@@ -78,8 +78,7 @@ function loadFooter() {
                         <h3>Otváracie hodiny</h3>
                         <div class="footer-hours">
                             <p>Po - Pia 09:00 - 17:00</p>
-                            <p>Víkend a sviatky</p>
-                            <p>Na základe dohody</p>
+                            <p>Víkend a sviatky dohodou</p>
                         </div>
                     </div>
                     

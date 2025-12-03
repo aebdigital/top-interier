@@ -18,6 +18,7 @@
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="../css/referencie.css?v=3.0">
     <link rel="stylesheet" href="../css/components/filter.css?v=3.0">
+    <link rel="stylesheet" href="../css/components/lightbox.css?v=3.0">
     
     <!-- GSAP and Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -63,6 +64,7 @@
     <script src="../js/fallback-components.js?v=3.0"></script>
     <script src="../js/gsap-simple.js?v=3.0"></script>
     <script src="../js/components/filter.js?v=3.0"></script>
+    <script src="../js/components/lightbox.js?v=3.0"></script>
 
     <!-- Vizualizácie Gallery Script -->
     <script>
@@ -104,15 +106,9 @@
                 galleryItem.setAttribute('data-category', project.categories.join(','));
                 
                 galleryItem.innerHTML = `
-                    <a href="${project.link}" style="text-decoration: none; color: inherit;">
-                        <div class="vizualizacie-card-container">
-                            <img src="${project.image}" alt="${project.title}" loading="lazy">
-                            <div class="vizualizacie-card-overlay">
-                                <div class="vizualizacie-card-title">${project.title}</div>
-                                <div class="vizualizacie-card-description">${project.description}</div>
-                            </div>
-                        </div>
-                    </a>
+                    <div class="vizualizacie-card-container" data-lightbox="vizualizacie" data-src="${project.image}">
+                        <img src="${project.image}" alt="${project.title}" loading="lazy">
+                    </div>
                 `;
                 
                 galleryContainer.appendChild(galleryItem);
@@ -121,6 +117,41 @@
             // Initialize filter
             if (typeof initFilter === 'function') {
                 initFilter();
+            }
+            
+            // Initialize lightbox
+            if (typeof initLightbox === 'function') {
+                initLightbox();
+                
+                // Initialize data-lightbox functionality
+                const lightboxElements = document.querySelectorAll('[data-lightbox]');
+                if (lightboxElements.length > 0) {
+                    // Group images by data-lightbox attribute
+                    const groups = {};
+                    lightboxElements.forEach(element => {
+                        const groupName = element.getAttribute('data-lightbox');
+                        if (!groups[groupName]) groups[groupName] = [];
+                        groups[groupName].push({
+                            element: element,
+                            src: element.getAttribute('data-src') || element.querySelector('img').src
+                        });
+                    });
+                    
+                    // Add click handlers for each group
+                    Object.keys(groups).forEach(groupName => {
+                        const group = groups[groupName];
+                        const imagePaths = group.map(item => item.src);
+                        
+                        group.forEach((item, index) => {
+                            item.element.style.cursor = 'pointer';
+                            item.element.addEventListener('click', () => {
+                                if (typeof openLightbox === 'function') {
+                                    openLightbox(imagePaths, index);
+                                }
+                            });
+                        });
+                    });
+                }
             }
         });
     </script>

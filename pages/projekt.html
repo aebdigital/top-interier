@@ -73,6 +73,60 @@
     <script>
         // Project data configuration
         const projectsData = {
+            'referencia-1': {
+                title: 'Referencia 1',
+                description: [
+                    'Moderná kuchyňa s vysokým leskom predstavuje dokonalé spojenie funkčnosti a elegancie. Dizajn kladie dôraz na čisté línie a minimalistický štýl.',
+                    'Použité materiály v kombinácii s inteligentným osvetlením vytvárajú priestor, ktorý je nielen praktický, ale aj vizuálne pôsobivý.',
+                    'Každý detail bol starostlivo vybraný, aby zodpovedal potrebám moderného varenia a zároveň vytvoril harmonickú atmosféru domova.'
+                ],
+                meta: [
+                    { label: 'Typ', value: 'Moderná kuchyňa' },
+                    { label: 'Štýl', value: 'Vysoký lesk' },
+                    { label: 'Kategória', value: 'Moderne kuchyne' }
+                ],
+                folder: '../sources/sources 2',
+                images: ['07.jpg', '44.jpg', '49.jpg', '51.jpg', '54.jpg'],
+                seoTitle: 'Moderná kuchyňa s vysokým leskom - Referencia 1 - TOP INTERIER s.r.o.',
+                seoDescription: 'Pozrite si našu realizáciu modernej kuchyne s vysokým leskom. Elegantný dizajn a kvalitné materiály.',
+                seoKeywords: 'moderná kuchyňa, vysoký lesk, dizajn, interiér, TOP INTERIER'
+            },
+            'referencia-2': {
+                title: 'Referencia 2', 
+                description: [
+                    'Štýlové riešenie obývacieho priestoru, ktoré kombinuje komfort s moderným dizajnom. Priestor bol navrhnutý pre relaxáciu a spoločenské stretnutia.',
+                    'Farebná paleta a materiály boli vybrané tak, aby vytvorili útulnú atmosféru bez kompromisu na štýle a funkcionalite.',
+                    'Nábytok na mieru dokonale využíva každý centimeter priestoru a zároveň zachováva pocit otvorenosti a svetlosti.'
+                ],
+                meta: [
+                    { label: 'Typ', value: 'Obývací priestor' },
+                    { label: 'Štýl', value: 'Moderný' },
+                    { label: 'Kategória', value: 'Obývacie izby' }
+                ],
+                folder: '../sources/sources 2',
+                images: ['34.jpg', '07.jpg', '42.jpg', '44.jpg', '49.jpg'],
+                seoTitle: 'Štýlové riešenie obývacieho priestoru - Referencia 2 - TOP INTERIER s.r.o.',
+                seoDescription: 'Moderné riešenie obývacieho priestoru s dôrazom na komfort a štýl. Kvalitná realizácia interiéru.',
+                seoKeywords: 'obývací priestor, moderný dizajn, interiér, nábytok na mieru, TOP INTERIER'
+            },
+            'referencia-3': {
+                title: 'Referencia 3',
+                description: [
+                    'Funkčné a estetické riešenie kancelárskeho priestoru, ktoré podporuje produktivitu a well-being zamestnancov. Dizajn spája profesionalitu s pohodlím.',
+                    'Použité materiály a farebné riešenia vytvárajú motivujúce pracovné prostredie s dôrazom na ergonómiu a funkcionalitu.',
+                    'Každý element bol navrhnutý s ohľadom na efektívnosť práce a zároveň estetický vzhľad celého priestoru.'
+                ],
+                meta: [
+                    { label: 'Typ', value: 'Kancelársky priestor' },
+                    { label: 'Štýl', value: 'Business' },
+                    { label: 'Kategória', value: 'Kancelárie' }
+                ],
+                folder: '../sources/sources 2',
+                images: ['42.jpg', '34.jpg', '07.jpg', '51.jpg', '54.jpg'],
+                seoTitle: 'Funkčné kancelárske riešenie - Referencia 3 - TOP INTERIER s.r.o.',
+                seoDescription: 'Moderné kancelárske priestory navrhnuté pre maximálnu produktivitu a pohodlie. Profesionálne riešenie interiéru.',
+                seoKeywords: 'kancelária, office design, pracovné prostredie, ergonómia, TOP INTERIER'
+            },
             'bratislava-skypark': {
                 title: 'Bratislava Skypark',
                 description: [
@@ -179,7 +233,7 @@
                 if (typeof initLightbox === 'function') {
                     initLightbox();
                     // Create image paths for lightbox
-                    const imagePaths = project.images.map(img => `../sources/vizualizacie/${project.folder}/${img}`);
+                    const imagePaths = project.images.map(img => `${project.folder}/${img}`);
                     initGalleryLightbox(imagePaths);
                 }
             }, 100);
@@ -196,7 +250,7 @@
                     heroItem.className = 'project-gallery-item';
                     
                     const heroImg = document.createElement('img');
-                    heroImg.src = `../sources/vizualizacie/${folder}/${image}`;
+                    heroImg.src = `${folder}/${image}`;
                     heroImg.alt = `${folder} - hlavný obrázok`;
                     heroImg.loading = 'eager';
                     
@@ -208,7 +262,7 @@
                     thumbItem.className = 'project-gallery-item';
                     
                     const thumbImg = document.createElement('img');
-                    thumbImg.src = `../sources/vizualizacie/${folder}/${image}`;
+                    thumbImg.src = `${folder}/${image}`;
                     thumbImg.alt = `${folder} - obrázok ${index + 1}`;
                     thumbImg.loading = 'lazy';
                     
@@ -219,24 +273,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Lenis smooth scrolling
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                direction: 'vertical',
-                gestureDirection: 'vertical',
-                smooth: true,
-                mouseMultiplier: 1,
-                smoothTouch: false,
-                touchMultiplier: 2,
-                infinite: false,
-            });
-
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
+            // Lenis is already initialized in gsap-simple.js - no need for duplicate
             
             // Load project based on URL parameter
             const projectId = getProjectIdFromUrl();

@@ -48,7 +48,7 @@
 .project-description {
     font-size: 1rem;
     line-height: 1.7;
-    color: #555;
+    color: #333;
     margin: 0 0 30px 0;
 }
 
@@ -132,7 +132,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 
 .project-gallery-grid .project-gallery-item:first-child img {
@@ -215,7 +215,7 @@
         width: 100%;
         position: relative;
         height: auto;
-        padding: 40px 20px;
+        padding: 150px 20px 40px 20px;
         box-shadow: none;
     }
     
@@ -254,6 +254,6 @@
     }
     
     .project-info-sidebar {
-        padding: 30px 15px;
+        padding: 150px 15px 30px 15px;
     }
 }

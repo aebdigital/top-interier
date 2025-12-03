@@ -14,7 +14,7 @@
     max-width: 50%;
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
-    color: #555;
+    color: #333;
 }
 
 /* Removed unused section styles */
@@ -98,7 +98,7 @@
     padding: 8px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-weight: 300;
-    color: #555;
+    color: #333;
     position: relative;
     padding-left: 20px;
 }
@@ -160,7 +160,7 @@
     padding: 8px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-weight: 300;
-    color: #555;
+    color: #333;
     position: relative;
     padding-left: 20px;
 }
@@ -178,7 +178,7 @@
 }
 
 .hardware-category p {
-    color: #555;
+    color: #333;
     line-height: var(--line-height-relaxed);
     margin: 0;
     font-weight: 400;
@@ -229,7 +229,7 @@ margin-top: 20px !important;
 
 .service-description {
     font-size: var(--font-size-base);
-    color: #555;
+    color: #333;
     line-height: var(--line-height-relaxed);
     margin: 0 0 25px 0;
     font-weight: 500;
@@ -283,6 +283,10 @@ margin-top: 20px !important;
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .services-description {
+        max-width: 100%;
+    }
+    
     .services-section {
         padding: 60px 0;
     }
@@ -367,8 +371,16 @@ margin-top: 20px !important;
         padding: 40px 0;
     }
     
+    .service-item {
+        padding: 15px;
+    }
+    
     .service-content {
         padding: 20px 15px;
+    }
+    
+    .service-content h3 {
+        margin-bottom: 10px;
     }
     
     .service-image {

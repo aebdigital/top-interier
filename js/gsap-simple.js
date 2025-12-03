@@ -15,21 +15,26 @@ const lenis = new Lenis({
     infinite: false,
 });
 
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-
 // Connect Lenis to GSAP ScrollTrigger
 lenis.on('scroll', ScrollTrigger.update);
 
+// Use only GSAP ticker for consistent frame rate and better performance
 gsap.ticker.add((time) => {
     lenis.raf(time * 1000);
 });
 
 gsap.ticker.lagSmoothing(0);
+
+// Pause animations when tab is not visible to save resources
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        gsap.globalTimeline.pause();
+        lenis.stop();
+    } else {
+        gsap.globalTimeline.resume();
+        lenis.start();
+    }
+});
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {

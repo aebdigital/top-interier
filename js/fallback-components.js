@@ -89,7 +89,7 @@ function loadHeaderFallback() {
         <div class="mobile-sidebar">
             <div class="mobile-sidebar-header">
                 <div class="mobile-sidebar-logo">
-                    <span class="logo-text">TOP INTERIÉR</span>
+                    <span class="logo-text">TOP INTERIER</span>
                 </div>
                 <button class="mobile-close-btn">✕</button>
             </div>
@@ -163,8 +163,7 @@ function loadFooterFallback() {
                         <h3>Otváracie hodiny</h3>
                         <div class="footer-hours">
                             <p>Pon - Pia 09:00 - 17:00</p>
-                            <p>Víkend a sviatky</p>
-                            <p>Na základe dohody</p>
+                            <p>Víkend a sviatky dohodou</p>
                         </div>
                     </div>
                     
