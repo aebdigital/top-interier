@@ -67,7 +67,7 @@
 /* CTA Column */
 .footer-cta p {
     font-size: 1rem;
-    color: #cccccc;
+    color: #ffffff;
     margin-bottom: 25px;
     line-height: 1.6;
 }
@@ -248,7 +248,7 @@
 .cookie-settings-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin: 0;
 }
 
@@ -256,14 +256,14 @@
     background: none;
     border: none;
     font-size: 24px;
-    color: #333;
+    color: #000;
     cursor: pointer;
     padding: 5px;
     transition: color 0.3s ease;
 }
 
 .cookie-settings-close:hover {
-    color: #333;
+    color: #000;
 }
 
 .cookie-settings-body {
@@ -291,7 +291,7 @@
 .cookie-category-title {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin: 0;
 }
 
@@ -346,7 +346,7 @@
 }
 
 .cookie-category-description {
-    color: #333;
+    color: #000;
     font-size: 0.9rem;
     line-height: 1.4;
     margin-top: 8px;
@@ -464,7 +464,7 @@
 }
 
 .privacy-popup-body h3 {
-    color: #333;
+    color: #000;
     font-size: var(--font-size-lg);
     font-weight: 600;
     margin-top: 25px;
@@ -472,7 +472,7 @@
 }
 
 .privacy-popup-body p {
-    color: #333;
+    color: #000;
     margin-bottom: 15px;
     font-size: var(--font-size-base);
 }
@@ -482,7 +482,7 @@
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 25px;
-    color: #333;
+    color: #000;
     font-size: var(--font-size-sm);
     line-height: var(--line-height-normal);
 }

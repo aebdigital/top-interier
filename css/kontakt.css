@@ -68,7 +68,7 @@
 .map-click-hint p {
     margin: 0;
     font-size: 14px;
-    color: #333;
+    color: #000;
     font-weight: 300;
     text-align: center;
 }
@@ -132,7 +132,7 @@
 
 .company-info p {
     margin: 5px 0;
-    color: #333;
+    color: #000;
     font-size: var(--font-size-base);
 }
 
@@ -142,7 +142,7 @@
 
 .address-info p {
     margin: 5px 0;
-    color: #333;
+    color: #000;
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
 }
@@ -167,7 +167,7 @@
 
 .company-registration p {
     margin: 8px 0;
-    color: #333;
+    color: #000;
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
 }
@@ -201,7 +201,7 @@
 .address-info-header p {
     margin: 0;
     line-height: var(--line-height-relaxed);
-    color: #333;
+    color: #000;
     font-weight: 300;
     font-size: var(--font-size-base);
     text-align: center;
@@ -250,7 +250,7 @@
 .company-registration-header p {
     margin: 0 0 5px 0;
     line-height: var(--line-height-relaxed);
-    color: #333;
+    color: #000;
     font-weight: 400;
     font-size: var(--font-size-base);
 }
@@ -260,7 +260,7 @@
 }
 
 .email-under-address a {
-    color: #333;
+    color: #000;
     text-decoration: none;
 }
 
@@ -306,7 +306,7 @@
 
 .contact-person p {
     margin: 0 0 5px 0;
-    color: #333;
+    color: #000;
     font-size: var(--font-size-base);
 }
 
@@ -320,7 +320,7 @@
 }
 
 .contact-person a {
-    color: #333;
+    color: #000;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -344,7 +344,7 @@
 }
 
 .contact-email strong {
-    color: #333;
+    color: #000;
     font-weight: 300;
 }
 

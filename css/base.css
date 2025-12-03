@@ -12,11 +12,11 @@
 /* Base Styles - Colors, Typography, and Layout */
 :root {
     /* Color Variables */
-    --primary-color: #333333;
-    --secondary-color: #333333;
+    --primary-color: #000000;
+    --secondary-color: #000000;
     --accent-color: #ffffff;
     --background-color: #f6efeb;
-    --text-color: #333333;
+    --text-color: #000000;
     --border-color: rgba(128, 128, 128, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.1);
     --hover-bg: rgba(255, 255, 255, 0.9);
@@ -173,7 +173,7 @@ p:last-child {
     p, li {
         font-size: 0.9rem;
         font-weight: 300;
-        color: rgb(51, 51, 51);
+        color: #000000;
     }
 }
 
@@ -408,7 +408,7 @@ section:nth-child(3n) {
 .cookie-settings-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin: 0;
 }
 
@@ -416,14 +416,14 @@ section:nth-child(3n) {
     background: none;
     border: none;
     font-size: 24px;
-    color: #333;
+    color: #000;
     cursor: pointer;
     padding: 5px;
     transition: color 0.3s ease;
 }
 
 .cookie-settings-close:hover {
-    color: #333;
+    color: #000;
 }
 
 .cookie-settings-body {
@@ -451,7 +451,7 @@ section:nth-child(3n) {
 .cookie-category-title {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin: 0;
 }
 
@@ -506,7 +506,7 @@ section:nth-child(3n) {
 }
 
 .cookie-category-description {
-    color: #333;
+    color: #000;
     font-size: 0.9rem;
     line-height: 1.4;
     margin-top: 8px;
