@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="../css/components/hero.css?v=3.0">
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="../css/referencie.css?v=3.0">
-    <link rel="stylesheet" href="../css/components/filter.css?v=3.0">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- GSAP and Animation Libraries -->
@@ -41,21 +40,11 @@
 
     
 
-    <!-- Gallery Section with Filter -->
+    <!-- Gallery Section -->
     <section class="gallery-section">
-        <div class="page-with-filter">
-            <!-- Filter Sidebar -->
-            <div class="filter-sidebar">
-                <div id="filter-container">
-                    <!-- Filter will be populated by JavaScript -->
-                </div>
-            </div>
-            
-            <!-- Main Content -->
-            <div class="main-content">
-                <div class="vizualizacie-cards-grid" id="references-gallery">
-                    <!-- Gallery items will be populated by JavaScript -->
-                </div>
+        <div class="container">
+            <div class="vizualizacie-cards-grid" id="references-gallery">
+                <!-- Gallery items will be populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -68,93 +57,171 @@
     <!-- Fallback Components (always loads) -->
     <script src="../js/fallback-components.js?v=3.0"></script>
     <script src="../js/gsap-simple.js?v=3.0"></script>
-    <script src="../js/components/filter.js?v=3.0"></script>
 
     <!-- Masonry Gallery Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Array of images from sources 2 folder
-            const galleryImages = [
-                '../sources/sources 2/07.jpg',
-                '../sources/sources 2/34.jpg', 
-                '../sources/sources 2/42.jpg',
-                '../sources/sources 2/44.jpg',
-                '../sources/sources 2/49.jpg',
-                '../sources/sources 2/51.jpg',
-                '../sources/sources 2/54.jpg'
-            ];
-            
             const galleryContainer = document.getElementById('references-gallery');
             
-            // Gallery data with categories
-            const galleryData = [
-                { image: galleryImages[0], title: 'Referencia 1', description: 'Moderná kuchyňa s vysokým leskom', categories: ['moderne-kuchyne'] },
-                { image: galleryImages[1], title: 'Referencia 2', description: 'Štýlové riešenie obývacieho priestoru', categories: ['obyvacie-izby'] },
-                { image: galleryImages[2], title: 'Referencia 3', description: 'Funkčné a estetické riešenie', categories: ['kancelarie'] },
-                { image: galleryImages[3], title: 'Referencia 4', description: 'Celkové zariadenie bytu', categories: ['obyvacie-izby'] },
-                { image: galleryImages[4], title: 'Referencia 5', description: 'Prémiové materiály a dizajn', categories: ['moderne-kuchyne'] },
-                { image: galleryImages[5], title: 'Referencia 6', description: 'Čisté línie a minimalizmus', categories: ['spalne'] },
-                { image: galleryImages[6], title: 'Referencia 7', description: 'Klasický dizajn s moderným prístupom', categories: ['tradicne-kuchyne'] },
-                { image: galleryImages[0], title: 'Referencia 8', description: 'Sofístikovaná estetika v každom detaile', categories: ['kupelne'] },
-                { image: galleryImages[1], title: 'Referencia 9', description: 'Organizácia a úchova v modernej kuchyni', categories: ['kniznica'] },
-                { image: galleryImages[2], title: 'Referencia 10', description: 'Atmosféra a funkcionalita v jednom', categories: ['predsien'] },
-                { image: galleryImages[3], title: 'Referencia 11', description: 'Dokonalost aj v najmenších prvkoch', categories: ['moderne-kuchyne'] },
-                { image: galleryImages[4], title: 'Referencia 12', description: 'Harmónia tónov a materiálov', categories: ['obyvacie-izby'] },
-                { image: galleryImages[5], title: 'Referencia 13', description: 'Pohodlie a funkčnosť pri používaní', categories: ['kancelarie'] },
-                { image: galleryImages[6], title: 'Referencia 14', description: 'Moderné vybavenie pre komfort', categories: ['moderne-kuchyne'] },
-                { image: galleryImages[0], title: 'Referencia 15', description: 'Autentickosť dreva a kamena', categories: ['tradicne-kuchyne'] },
-                { image: galleryImages[1], title: 'Referencia 16', description: 'Najvyšší standard spracovania', categories: ['spalne'] },
-                { image: galleryImages[2], title: 'Referencia 17', description: 'Každý projekt je jedinečný', categories: ['obchody'] },
-                { image: galleryImages[3], title: 'Referencia 18', description: 'Súčasné trendy v dizajne', categories: ['kupelne'] },
-                { image: galleryImages[4], title: 'Referencia 19', description: 'Optimálne využitie každého metra', categories: ['kniznica'] },
-                { image: galleryImages[5], title: 'Referencia 20', description: 'Dlhodobá spoľahlivosť a odolnosť', categories: ['predsien'] },
-                { image: galleryImages[6], title: 'Referencia 21', description: 'Nádych elegancie vo vašom domove', categories: ['obyvacie-izby'] },
-                { image: galleryImages[0], title: 'Referencia 22', description: 'Súčasný dizajn s nadčasovými prvkami', categories: ['moderne-kuchyne'] },
-                { image: galleryImages[1], title: 'Referencia 23', description: 'Praktickosť spojená s krásou', categories: ['kancelarie'] },
-                { image: galleryImages[2], title: 'Referencia 24', description: 'Od návrhu až po finálnu montáž', categories: ['obchody'] }
+            // Real reference projects from sources/referencie folder
+            const referenceProjects = [
+                {
+                    id: 'park-house',
+                    title: 'Park House',
+                    shortDescription: 'Luxusný rodinný dom s moderným dizajnom',
+                    fullDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                    previewImage: '../sources/referencie/Referencie Park House/20240425_133128.jpg',
+                    images: [
+                        '../sources/referencie/Referencie Park House/20240425_132635.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_132742.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_133057.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_133128.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_133229.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_133823.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_134011.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_134221.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_134252.jpg'
+                    ],
+                    categories: ['moderne-kuchyne'],
+                    year: '2024',
+                    location: 'Bratislava'
+                },
+                {
+                    id: 'rd-galanta',
+                    title: 'Rodinný dom Galanta',
+                    shortDescription: 'Kompletná kuchyňa s jedinečným dizajnom',
+                    fullDescription: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris viverra veniam sit amet lacus cursus, ac auctor lorem vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+                    previewImage: '../sources/referencie/Referencie RD Galanta/20230317_130237.jpg',
+                    images: [
+                        '../sources/referencie/Referencie RD Galanta/20230317_123937.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_124021.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_124108.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_124210.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125134.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125334.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125546.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125641.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125814.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_130237.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_130516.jpg'
+                    ],
+                    categories: ['tradicne-kuchyne'],
+                    year: '2023',
+                    location: 'Galanta'
+                },
+                {
+                    id: 'rd-jarovce',
+                    title: 'Rodinný dom Jarovce',
+                    shortDescription: 'Nadčasové riešenie s prírodnými materiálmi',
+                    fullDescription: 'Nulla facilisi morbi tempus iaculis urna, id volutpat lacus laoreet non curabitur gravida. Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. Sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu.',
+                    previewImage: '../sources/referencie/Referencie RD Jarovce/20200612_131727.jpg',
+                    images: [
+                        '../sources/referencie/Referencie RD Jarovce/20190618_085739.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_085844.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_090735.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_092053.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_092245.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_092413.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200611_095347.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_130053.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_130454.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_130646.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_130836.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_131341.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_131727.jpg'
+                    ],
+                    categories: ['obyvacie-izby'],
+                    year: '2019-2020',
+                    location: 'Jarovce'
+                },
+                {
+                    id: 'byt-dunajska-streda',
+                    title: 'Byt Dunajská Streda',
+                    shortDescription: 'Moderný bytový interiér s funkčnými riešeniami',
+                    fullDescription: 'Suspendisse interdum consectetur libero, id faucibus nisl tincidunt eget. Nullam ac erat ante. Quisque imperdiet placerat efficitur. Morbi faucibus congue lacus eu facilisis. Integer ultricies risus sed ligula tempus.',
+                    previewImage: '../sources/referencie/Referencie byt Dunajská Streda/20250529_141535.jpg',
+                    images: [
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250529_141535.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_185319.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_192343.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_192422.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_192643.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_192754 copy.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250903_093836.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250903_093912.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/táta.jpg'
+                    ],
+                    categories: ['spalne'],
+                    year: '2025',
+                    location: 'Dunajská Streda'
+                },
+                {
+                    id: 'rd-baka',
+                    title: 'Rodinný dom Baka',
+                    shortDescription: 'Priestranná kuchyňa s ostrovom a moderným vybavením',
+                    fullDescription: 'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit.',
+                    previewImage: '../sources/referencie/Referncie RD Baka/20240301_101417.jpg',
+                    images: [
+                        '../sources/referencie/Referncie RD Baka/20240301_100141.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100432.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100539.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100619.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100818.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_101051.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_101417.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_101544.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_102018.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_102403.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_103041.jpg'
+                    ],
+                    categories: ['kancelarie'],
+                    year: '2024',
+                    location: 'Baka'
+                },
+                {
+                    id: 'rd-velke-dvorníky',
+                    title: 'Rodinný dom Veľké Dvorníky',
+                    shortDescription: 'Elegantná kuchyňa s vysokými skrinkami',
+                    fullDescription: 'Donec rutrum congue leo eget malesuada. Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis porttitor.',
+                    previewImage: '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_141601.jpg',
+                    images: [
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_141601.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_141737.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_142341.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_143537.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_143936.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_144143.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_144441.jpg'
+                    ],
+                    categories: ['kupelne'],
+                    year: '2024',
+                    location: 'Veľké Dvorníky'
+                }
             ];
             
-            // Create visualization-style gallery items
-            galleryData.forEach(function(item, index) {
+            // Store projects globally for access from other scripts
+            window.referenceProjects = referenceProjects;
+            
+            // Create gallery items
+            referenceProjects.forEach(function(project) {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'vizualizacie-card';
-                galleryItem.setAttribute('data-category', item.categories.join(','));
                 
-                // Add project detail links for first 3 projects only
-                const hasProjectDetail = index < 3;
-                const projectSlug = hasProjectDetail ? `referencia-${index + 1}` : null;
-                
-                if (hasProjectDetail) {
-                    galleryItem.innerHTML = `
-                        <a href="projekt.html?projekt=${projectSlug}" style="text-decoration: none; color: inherit;">
-                            <div class="vizualizacie-card-container">
-                                <img src="${item.image}" alt="${item.title}" loading="lazy">
-                                <div class="vizualizacie-card-overlay">
-                                    <div class="vizualizacie-card-title">${item.title}</div>
-                                    <div class="vizualizacie-card-description">${item.description}</div>
-                                </div>
-                            </div>
-                        </a>
-                    `;
-                } else {
-                    galleryItem.innerHTML = `
+                galleryItem.innerHTML = `
+                    <a href="projekt.html?projekt=${project.id}" style="text-decoration: none; color: inherit;">
                         <div class="vizualizacie-card-container">
-                            <img src="${item.image}" alt="${item.title}" loading="lazy">
+                            <img src="${project.previewImage}" alt="${project.title}" loading="lazy">
                             <div class="vizualizacie-card-overlay">
-                                <div class="vizualizacie-card-title">${item.title}</div>
-                                <div class="vizualizacie-card-description">${item.description}</div>
+                                <div class="vizualizacie-card-title">${project.title}</div>
+                                <div class="vizualizacie-card-description">${project.shortDescription}</div>
+                                <div class="vizualizacie-card-meta">${project.year} • ${project.location}</div>
                             </div>
                         </div>
-                    `;
-                }
+                    </a>
+                `;
                 
                 galleryContainer.appendChild(galleryItem);
             });
-            
-            // Initialize filter
-            if (typeof initFilter === 'function') {
-                initFilter();
-            }
         });
     </script>
 

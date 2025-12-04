@@ -44,8 +44,8 @@
                     <!-- Meta information will be loaded dynamically -->
                 </div>
                 
-                <a href="vizualizacie.html" class="back-to-vizualizacie">
-                    ← Späť na vizualizácie
+                <a href="referencie.html" class="back-to-vizualizacie">
+                    ← Späť na referencie
                 </a>
             </div>
         </div>
@@ -71,112 +71,175 @@
     
     <!-- Dynamic Project Data -->
     <script>
-        // Project data configuration
+        // Real reference projects data from sources/referencie folder
         const projectsData = {
-            'referencia-1': {
-                title: 'Referencia 1',
+            'park-house': {
+                title: 'Park House',
                 description: [
-                    'Moderná kuchyňa s vysokým leskom predstavuje dokonalé spojenie funkčnosti a elegancie. Dizajn kladie dôraz na čisté línie a minimalistický štýl.',
-                    'Použité materiály v kombinácii s inteligentným osvetlením vytvárajú priestor, ktorý je nielen praktický, ale aj vizuálne pôsobivý.',
-                    'Každý detail bol starostlivo vybraný, aby zodpovedal potrebám moderného varenia a zároveň vytvoril harmonickú atmosféru domova.'
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.'
                 ],
                 meta: [
-                    { label: 'Typ', value: 'Moderná kuchyňa' },
-                    { label: 'Štýl', value: 'Vysoký lesk' },
-                    { label: 'Kategória', value: 'Moderne kuchyne' }
-                ],
-                folder: '../sources/sources 2',
-                images: ['07.jpg', '44.jpg', '49.jpg', '51.jpg', '54.jpg'],
-                seoTitle: 'Moderná kuchyňa s vysokým leskom - Referencia 1 - TOP INTERIER s.r.o.',
-                seoDescription: 'Pozrite si našu realizáciu modernej kuchyne s vysokým leskom. Elegantný dizajn a kvalitné materiály.',
-                seoKeywords: 'moderná kuchyňa, vysoký lesk, dizajn, interiér, TOP INTERIER'
-            },
-            'referencia-2': {
-                title: 'Referencia 2', 
-                description: [
-                    'Štýlové riešenie obývacieho priestoru, ktoré kombinuje komfort s moderným dizajnom. Priestor bol navrhnutý pre relaxáciu a spoločenské stretnutia.',
-                    'Farebná paleta a materiály boli vybrané tak, aby vytvorili útulnú atmosféru bez kompromisu na štýle a funkcionalite.',
-                    'Nábytok na mieru dokonale využíva každý centimeter priestoru a zároveň zachováva pocit otvorenosti a svetlosti.'
-                ],
-                meta: [
-                    { label: 'Typ', value: 'Obývací priestor' },
-                    { label: 'Štýl', value: 'Moderný' },
-                    { label: 'Kategória', value: 'Obývacie izby' }
-                ],
-                folder: '../sources/sources 2',
-                images: ['34.jpg', '07.jpg', '42.jpg', '44.jpg', '49.jpg'],
-                seoTitle: 'Štýlové riešenie obývacieho priestoru - Referencia 2 - TOP INTERIER s.r.o.',
-                seoDescription: 'Moderné riešenie obývacieho priestoru s dôrazom na komfort a štýl. Kvalitná realizácia interiéru.',
-                seoKeywords: 'obývací priestor, moderný dizajn, interiér, nábytok na mieru, TOP INTERIER'
-            },
-            'referencia-3': {
-                title: 'Referencia 3',
-                description: [
-                    'Funkčné a estetické riešenie kancelárskeho priestoru, ktoré podporuje produktivitu a well-being zamestnancov. Dizajn spája profesionalitu s pohodlím.',
-                    'Použité materiály a farebné riešenia vytvárajú motivujúce pracovné prostredie s dôrazom na ergonómiu a funkcionalitu.',
-                    'Každý element bol navrhnutý s ohľadom na efektívnosť práce a zároveň estetický vzhľad celého priestoru.'
-                ],
-                meta: [
-                    { label: 'Typ', value: 'Kancelársky priestor' },
-                    { label: 'Štýl', value: 'Business' },
-                    { label: 'Kategória', value: 'Kancelárie' }
-                ],
-                folder: '../sources/sources 2',
-                images: ['42.jpg', '34.jpg', '07.jpg', '51.jpg', '54.jpg'],
-                seoTitle: 'Funkčné kancelárske riešenie - Referencia 3 - TOP INTERIER s.r.o.',
-                seoDescription: 'Moderné kancelárske priestory navrhnuté pre maximálnu produktivitu a pohodlie. Profesionálne riešenie interiéru.',
-                seoKeywords: 'kancelária, office design, pracovné prostredie, ergonómia, TOP INTERIER'
-            },
-            'bratislava-skypark': {
-                title: 'Bratislava Skypark',
-                description: [
-                    'Moderný apartmán v prestížnej lokalite Bratislava Skypark navrhnutý s dôrazom na luxus a komfort. Dizajn spája súčasné trendy s nadčasovou eleganciou.',
-                    'Projekt zdôrazňuje maximálne využitie prirodzeného svetla a panoramatického výhľadu na mesto. Každý detail bol navrhnutý s ohľadom na funkcionalitu a estetiku moderného bývania.',
-                    'Použité materiály a farby vytvárajú harmonickú atmosféru, ktorá odráža životný štýl modernej rodiny v srdci Bratislavy.'
-                ],
-                meta: [
-                    { label: 'Typ', value: 'Apartmán' },
-                    { label: 'Lokalita', value: 'Bratislava Skypark' }
-                ],
-                folder: 'Bratislava Skypark',
-                images: ['1.jpg', '2.jpg', '3.jpg', 'viz_283.jpg', 'viz_286.jpg'],
-                seoTitle: 'Bratislava Skypark - TOP INTERIER s.r.o.',
-                seoDescription: '3D vizualizácia moderného apartmánu v Bratislava Skypark - luxusný interiér s panoramatickým výhľadom.',
-                seoKeywords: 'Bratislava Skypark, apartmán, vizualizácia, interiér'
-            },
-            'rodinny-dom-bratislava': {
-                title: 'Rodinný Dom Bratislava',
-                description: [
-                    'Elegantný rodinný dom v Bratislave navrhnutý pre moderný životný štýl. Interiér kombinuje funkčnosť s nadčasovým dizajnom.',
-                    'Projekt kladie dôraz na prirodzené materiály a svetlé farby, ktoré vytvárajú príjemnú a útulnú atmosféru pre celú rodinu.',
-                    'Každá miestnosť bola navrhnutá s ohľadom na potreby modernej rodiny s dôrazom na kvalitu a detail.'
-                ],
-                meta: [
-                    { label: 'Typ', value: 'Rodinný dom' },
+                    { label: 'Rok realizácie', value: '2024' },
                     { label: 'Lokalita', value: 'Bratislava' }
                 ],
-                folder: 'Rodinny Dom Bratislava',
-                images: ['1.jpg', '2.jpg', '3.jpg', '5.jpg', 'viz_328.jpg'],
-                seoTitle: 'Rodinný Dom Bratislava - TOP INTERIER s.r.o.',
-                seoDescription: '3D vizualizácia rodinného domu v Bratislave - moderný interiér pre komfortné bývanie.',
-                seoKeywords: 'rodinný dom, Bratislava, vizualizácia, interiér'
+                folder: '../sources/referencie/Referencie Park House',
+                images: [
+                    '20240425_133128.jpg',
+                    '20240425_132635.jpg',
+                    '20240425_132742.jpg',
+                    '20240425_133057.jpg',
+                    '20240425_133229.jpg',
+                    '20240425_133823.jpg',
+                    '20240425_134011.jpg',
+                    '20240425_134221.jpg',
+                    '20240425_134252.jpg'
+                ],
+                seoTitle: 'Park House - Luxusný rodinný dom - TOP INTERIER s.r.o.',
+                seoDescription: 'Pozrite si našu realizáciu luxusného rodinného domu Park House s moderným dizajnom a prvotriednymi materiálmi.',
+                seoKeywords: 'Park House, luxusný dom, moderný interiér, kuchyne na mieru, TOP INTERIER'
             },
-            'rodinny-dom-dunajska-streda': {
-                title: 'Rodinný Dom Dunajská Streda',
+            'rd-galanta': {
+                title: 'Rodinný dom Galanta',
                 description: [
-                    'Krásny rodinný dom v Dunajskej Strede navrhnutý s láskou k detailu. Interiér spája tradičné hodnoty s modernými prvkami.',
-                    'Projekt reflektuje potreby súčasného bývania s dôrazom na pohodlie a funkcionalitu každého priestoru.',
-                    'Použité materiály a farebné riešenia vytvárajú harmonický celok, ktorý odráža osobnosť majiteľov.'
+                    'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Mauris viverra veniam sit amet lacus cursus, ac auctor lorem vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.',
+                    'Praesent congue erat at massa. Sed cursus turpis a purus. Aliquam erat volutpat. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin lorem quis nunc.',
+                    'Nulla facilisi. Suspendisse potenti. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.'
                 ],
                 meta: [
-                    { label: 'Typ', value: 'Rodinný dom' },
+                    { label: 'Rok realizácie', value: '2023' },
+                    { label: 'Lokalita', value: 'Galanta' }
+                ],
+                folder: '../sources/referencie/Referencie RD Galanta',
+                images: [
+                    '20230317_130237.jpg',
+                    '20230317_123937.jpg',
+                    '20230317_124021.jpg',
+                    '20230317_124108.jpg',
+                    '20230317_124210.jpg',
+                    '20230317_125134.jpg',
+                    '20230317_125334.jpg',
+                    '20230317_125546.jpg',
+                    '20230317_125641.jpg',
+                    '20230317_125814.jpg',
+                    '20230317_130516.jpg'
+                ],
+                seoTitle: 'Rodinný dom Galanta - Kompletná kuchyňa - TOP INTERIER s.r.o.',
+                seoDescription: 'Realizácia rodinného domu v Galante s jedinečným dizajnom kuchyne a funkčnými riešeniami.',
+                seoKeywords: 'Galanta, rodinný dom, kuchyňa na mieru, interiér, TOP INTERIER'
+            },
+            'rd-jarovce': {
+                title: 'Rodinný dom Jarovce',
+                description: [
+                    'Nulla facilisi morbi tempus iaculis urna, id volutpat lacus laoreet non curabitur gravida. Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero.',
+                    'Volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum.',
+                    'At elementum eu facilisis sed odio morbi quis commodo odio. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum.'
+                ],
+                meta: [
+                    { label: 'Rok realizácie', value: '2019-2020' },
+                    { label: 'Lokalita', value: 'Jarovce' }
+                ],
+                folder: '../sources/referencie/Referencie RD Jarovce',
+                images: [
+                    '20200612_131727.jpg',
+                    '20190618_085739.jpg',
+                    '20190618_085844.jpg',
+                    '20190618_090735.jpg',
+                    '20190618_092053.jpg',
+                    '20190618_092245.jpg',
+                    '20190618_092413.jpg',
+                    '20200611_095347.jpg',
+                    '20200612_130053.jpg',
+                    '20200612_130454.jpg',
+                    '20200612_130646.jpg',
+                    '20200612_130836.jpg',
+                    '20200612_131341.jpg'
+                ],
+                seoTitle: 'Rodinný dom Jarovce - Nadčasové riešenie - TOP INTERIER s.r.o.',
+                seoDescription: 'Elegantný rodinný dom v Jarovciach s prírodnými materiálmi a nadčasovým dizajnom.',
+                seoKeywords: 'Jarovce, rodinný dom, prírodné materiály, nadčasový dizajn, TOP INTERIER'
+            },
+            'byt-dunajska-streda': {
+                title: 'Byt Dunajská Streda',
+                description: [
+                    'Suspendisse interdum consectetur libero, id faucibus nisl tincidunt eget. Nullam ac erat ante. Quisque imperdiet placerat efficitur. Morbi faucibus congue lacus eu facilisis.',
+                    'Integer ultricies risus sed ligula tempus rhoncus. Pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris in.',
+                    'Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales ut eu sem integer vitae justo eget magna fermentum.'
+                ],
+                meta: [
+                    { label: 'Rok realizácie', value: '2025' },
                     { label: 'Lokalita', value: 'Dunajská Streda' }
                 ],
-                folder: 'Rodinny dom Dunajska streda',
-                images: ['1.jpg', 'viz_310.jpg', 'viz_311.jpg', 'viz_312.jpg', 'viz_313.jpg'],
-                seoTitle: 'Rodinný Dom Dunajská Streda - TOP INTERIER s.r.o.',
-                seoDescription: '3D vizualizácia rodinného domu v Dunajskej Strede - elegantný interiér s dôrazom na detail.',
-                seoKeywords: 'rodinný dom, Dunajská Streda, vizualizácia, interiér'
+                folder: '../sources/referencie/Referencie byt Dunajská Streda',
+                images: [
+                    '20250529_141535.jpg',
+                    '20250813_185319.jpg',
+                    '20250813_192343.jpg',
+                    '20250813_192422.jpg',
+                    '20250813_192643.jpg',
+                    '20250813_192754 copy.jpg',
+                    '20250903_093836.jpg',
+                    '20250903_093912.jpg',
+                    'táta.jpg'
+                ],
+                seoTitle: 'Byt Dunajská Streda - Moderný bytový interiér - TOP INTERIER s.r.o.',
+                seoDescription: 'Štýlový bytový interiér v Dunajskej Strede s funkčnými riešeniami a moderným dizajnom.',
+                seoKeywords: 'Dunajská Streda, byt, bytový interiér, moderný dizajn, TOP INTERIER'
+            },
+            'rd-baka': {
+                title: 'Rodinný dom Baka',
+                description: [
+                    'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.',
+                    'Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.',
+                    'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae ultricies eget.'
+                ],
+                meta: [
+                    { label: 'Rok realizácie', value: '2024' },
+                    { label: 'Lokalita', value: 'Baka' }
+                ],
+                folder: '../sources/referencie/Referncie RD Baka',
+                images: [
+                    '20240301_101417.jpg',
+                    '20240301_100141.jpg',
+                    '20240301_100432.jpg',
+                    '20240301_100539.jpg',
+                    '20240301_100619.jpg',
+                    '20240301_100818.jpg',
+                    '20240301_101051.jpg',
+                    '20240301_101544.jpg',
+                    '20240301_102018.jpg',
+                    '20240301_102403.jpg',
+                    '20240301_103041.jpg'
+                ],
+                seoTitle: 'Rodinný dom Baka - Priestranná kuchyňa s ostrovom - TOP INTERIER s.r.o.',
+                seoDescription: 'Moderný rodinný dom v Bake s priestrannou kuchyňou, ostrovom a kvalitným vybavením.',
+                seoKeywords: 'Baka, rodinný dom, kuchyňa s ostrovom, moderné vybavenie, TOP INTERIER'
+            },
+            'rd-velke-dvorníky': {
+                title: 'Rodinný dom Veľké Dvorníky',
+                description: [
+                    'Donec rutrum congue leo eget malesuada. Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Pellentesque in ipsum id orci porta dapibus.',
+                    'Vivamus suscipit tortor eget felis porttitor volutpat. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh.',
+                    'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec velit neque, auctor sit amet aliquam vel.'
+                ],
+                meta: [
+                    { label: 'Rok realizácie', value: '2024' },
+                    { label: 'Lokalita', value: 'Veľké Dvorníky' }
+                ],
+                folder: '../sources/referencie/Referncie RD Veľké Dvorníky',
+                images: [
+                    '20241030_141601.jpg',
+                    '20241030_141737.jpg',
+                    '20241030_142341.jpg',
+                    '20241030_143537.jpg',
+                    '20241030_143936.jpg',
+                    '20241030_144143.jpg',
+                    '20241030_144441.jpg'
+                ],
+                seoTitle: 'Rodinný dom Veľké Dvorníky - Elegantná kuchyňa - TOP INTERIER s.r.o.',
+                seoDescription: 'Elegantná kuchyňa s vysokými skrinkami v rodinnom dome vo Veľkých Dvorníkoch.',
+                seoKeywords: 'Veľké Dvorníky, rodinný dom, elegantná kuchyňa, vysoké skrinky, TOP INTERIER'
             }
         };
 
@@ -189,8 +252,8 @@
             const project = projectsData[projectId];
             
             if (!project) {
-                // If project not found, redirect to visualizations page
-                window.location.href = 'vizualizacie.html';
+                // If project not found, redirect to references page
+                window.location.href = 'referencie.html';
                 return;
             }
 
@@ -249,24 +312,32 @@
                     const heroItem = document.createElement('div');
                     heroItem.className = 'project-gallery-item';
                     
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.className = 'project-gallery-item-image-wrapper';
+                    
                     const heroImg = document.createElement('img');
                     heroImg.src = `${folder}/${image}`;
                     heroImg.alt = `${folder} - hlavný obrázok`;
                     heroImg.loading = 'eager';
                     
-                    heroItem.appendChild(heroImg);
+                    imageWrapper.appendChild(heroImg);
+                    heroItem.appendChild(imageWrapper);
                     galleryGrid.appendChild(heroItem);
                 } else {
                     // Other images - thumbnails in 3-per-row grid
                     const thumbItem = document.createElement('div');
                     thumbItem.className = 'project-gallery-item';
                     
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.className = 'project-gallery-item-image-wrapper';
+                    
                     const thumbImg = document.createElement('img');
                     thumbImg.src = `${folder}/${image}`;
                     thumbImg.alt = `${folder} - obrázok ${index + 1}`;
                     thumbImg.loading = 'lazy';
                     
-                    thumbItem.appendChild(thumbImg);
+                    imageWrapper.appendChild(thumbImg);
+                    thumbItem.appendChild(imageWrapper);
                     galleryThumbnails.appendChild(thumbItem);
                 }
             });
@@ -280,8 +351,8 @@
             if (projectId) {
                 loadProjectData(projectId);
             } else {
-                // If no project ID, redirect to visualizations page
-                window.location.href = 'vizualizacie.html';
+                // If no project ID, redirect to references page
+                window.location.href = 'referencie.html';
             }
         });
     </script>

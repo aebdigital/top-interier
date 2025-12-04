@@ -118,16 +118,13 @@
     <script src="../js/fallback-components.js?v=3.0"></script>
     <script src="../js/gsap-simple.js?v=3.0"></script>
 
-    <!-- Fixed Image Loader and Map Interaction Script -->
+    <!-- Static Contact Image Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Use first image from homepage hero slider
-            const heroImageSrc = '../sources/vizualizacie/Bratislava Skypark/viz_283.jpg';
-            
-            // Set fixed image for contact hero photo
+            // Set static image for contact hero photo (first from the previous alternating set)
             const heroImage = document.getElementById('contact-hero-image');
             if (heroImage) {
-                heroImage.src = heroImageSrc;
+                heroImage.src = '../sources/referencie/Referncie RD Baka/20240301_101417.jpg';
             }
             
             // Map interaction functionality

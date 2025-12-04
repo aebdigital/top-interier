@@ -31,7 +31,7 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 4px #00000015;
     transition: transform 0.3s ease;
 }
 
@@ -69,9 +69,9 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 4px #00000015;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid rgb(192, 178, 131);
 }
 
 .material-category:hover {
@@ -131,9 +131,9 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 4px #00000015;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid rgb(192, 178, 131);
 }
 
 .hardware-category:hover {
@@ -197,11 +197,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover .service-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* Service Content */
@@ -264,7 +264,7 @@ margin-top: 20px !important;
 
 .cta-btn {
     display: inline-block;
-    background: #ffffff;
+    background: #cccccc;
     color: #000000;
     padding: 15px 30px;
     text-decoration: none;
@@ -458,7 +458,7 @@ margin-top: 20px !important;
     background: #ffffff;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 4px #00000015;
     transition: all 0.3s ease;
     height: 120px;
     display: flex;

@@ -7,15 +7,12 @@ function initFilter() {
 
 const filterCategories = [
     { id: 'all', name: 'Všetky kategórie', class: 'show-all' },
-    { id: 'moderne-kuchyne', name: 'Moderné kuchyne' },
+    { id: 'kuchyne', name: 'Kuchyne' },
     { id: 'obyvacie-izby', name: 'Obývacie izby' },
     { id: 'spalne', name: 'Spálne' },
-    { id: 'kupelne', name: 'Kúpeľne' },
-    { id: 'kniznica', name: 'Knižnica' },
-    { id: 'predsien', name: 'Predsieň a chodba' },
-    { id: 'kancelarie', name: 'Kancelárie' },
-    { id: 'obchody', name: 'Obchody a interiéry' },
-    { id: 'tradicne-kuchyne', name: 'Tradičné kuchyne' }
+    { id: 'detske-izby', name: 'Detské izby' },
+    { id: 'predsiene', name: 'Predsiene' },
+    { id: 'ostatne', name: 'Ostatné' }
 ];
 
 function createFilterHTML() {
@@ -69,14 +66,19 @@ function bindFilterEvents() {
         button.addEventListener('click', () => {
             const filterId = button.dataset.filter;
             
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            // Apply filter
-            applyFilter(filterId);
+            // Use custom apply filter if available, otherwise use default
+            if (typeof window.customApplyFilter === 'function') {
+                window.customApplyFilter(filterId);
+            } else {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Apply filter
+                applyFilter(filterId);
+            }
         });
     });
 
@@ -106,26 +108,31 @@ function bindFilterEvents() {
                 const filterId = option.dataset.filter;
                 const filterName = option.textContent;
                 
-                // Update selected display
-                const selectedText = mobileSelected.querySelector('.mobile-selected-text');
-                selectedText.textContent = filterName;
-                
-                // Remove active class from all mobile options
-                mobileOptionItems.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                
                 // Close dropdown
                 mobileSelected.classList.remove('open');
                 mobileOptions.classList.remove('show');
                 
-                // Apply filter
-                applyFilter(filterId);
-                
-                // Sync with desktop buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                const desktopBtn = filterContainer.querySelector(`[data-filter="${filterId}"]`);
-                if (desktopBtn) {
-                    desktopBtn.classList.add('active');
+                // Use custom apply filter if available, otherwise use default
+                if (typeof window.customApplyFilter === 'function') {
+                    window.customApplyFilter(filterId);
+                } else {
+                    // Update selected display
+                    const selectedText = mobileSelected.querySelector('.mobile-selected-text');
+                    selectedText.textContent = filterName;
+                    
+                    // Remove active class from all mobile options
+                    mobileOptionItems.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    
+                    // Apply filter
+                    applyFilter(filterId);
+                    
+                    // Sync with desktop buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    const desktopBtn = filterContainer.querySelector(`[data-filter="${filterId}"]`);
+                    if (desktopBtn) {
+                        desktopBtn.classList.add('active');
+                    }
                 }
             });
         });
@@ -137,21 +144,30 @@ function bindFilterEvents() {
         });
     }
     
-    // Set "Všetky kategórie" as default active
-    const showAllBtn = filterContainer.querySelector('.filter-category.show-all');
-    const mobileShowAll = filterContainer.querySelector('.mobile-filter-option[data-filter="all"]');
-    
-    if (showAllBtn) {
-        showAllBtn.classList.add('active');
-        applyFilter('all');
-    }
-    
-    if (mobileShowAll) {
-        mobileShowAll.classList.add('active');
+    // Set "Všetky kategórie" as default active only if no custom initialization
+    if (!window.customFilterInit) {
+        const showAllBtn = filterContainer.querySelector('.filter-category.show-all');
+        const mobileShowAll = filterContainer.querySelector('.mobile-filter-option[data-filter="all"]');
+        
+        if (showAllBtn) {
+            showAllBtn.classList.add('active');
+        }
+        
+        if (mobileShowAll) {
+            mobileShowAll.classList.add('active');
+        }
     }
 }
 
 function applyFilter(filterId) {
+    // Check if we have the category functionality available
+    if (typeof window.openCategoryFromFilter === 'function' && filterId !== 'all') {
+        // If clicking a specific category filter, open that category
+        window.openCategoryFromFilter(filterId);
+        return;
+    }
+    
+    // Default filtering behavior (for 'all' or fallback)
     const items = document.querySelectorAll('[data-category]');
     
     items.forEach(item => {
@@ -169,6 +185,11 @@ function applyFilter(filterId) {
             }
         }
     });
+    
+    // If 'all' is selected and we're in photos view, go back to categories
+    if (filterId === 'all' && typeof window.goBackToCategories === 'function') {
+        window.goBackToCategories();
+    }
     
     // Trigger custom event for any additional filtering logic
     document.dispatchEvent(new CustomEvent('filterChanged', { 

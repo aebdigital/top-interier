@@ -218,41 +218,37 @@
     <!-- Random Image Loader Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Array of images from sources 2 folder (kitchen and interior photos)
+            // Array of images from reference projects for service page
             const interiorImages = [
-                'sources/sources 2/07.jpg',
-                'sources/sources 2/34.jpg',
-                'sources/sources 2/42.jpg',
-                'sources/sources 2/44.jpg',
-                'sources/sources 2/49.jpg',
-                'sources/sources 2/51.jpg',
-                'sources/sources 2/54.jpg'
+                'sources/referencie/Referencie Park House/20240425_133128.jpg',
+                'sources/referencie/Referencie RD Galanta/20230317_130237.jpg', 
+                'sources/referencie/Referencie byt Dunajská Streda/20250529_141535.jpg',
+                'sources/referencie/Referncie RD Veľké Dvorníky/20241030_141601.jpg'
             ];
             
-            // Hero slider images from vizualizacie preview images
+            // Hero slider images from new reference projects
             const heroVizImages = [
-                'sources/vizualizacie/Bratislava Skypark/viz_283.jpg',
-                'sources/vizualizacie/Rodinny Dom Bratislava/viz_328.jpg',
-                'sources/vizualizacie/Rodinny dom Dunajska streda/viz_310.jpg'
+                'sources/referencie/Referncie RD Baka/20240301_101417.jpg',
+                'sources/referencie/Referencie RD Galanta/20230317_130237.jpg',
+                'sources/referencie/Referencie RD Jarovce/20200612_131727.jpg'
             ];
             
-            // Enhanced gallery mixing references and visualization projects
+            // Enhanced gallery using new reference project photos
             const galleryImages = [
-                // References from sources 2 folder
-                'sources/sources 2/07.jpg',
-                'sources/sources 2/34.jpg',
-                'sources/sources 2/42.jpg',
-                'sources/sources 2/44.jpg',
-                'sources/sources 2/49.jpg',
-                'sources/sources 2/51.jpg',
-                'sources/sources 2/54.jpg',
-                // Visualization projects
-                'sources/vizualizacie/Bratislava Skypark/viz_283.jpg',
-                'sources/vizualizacie/Bratislava Skypark/viz_286.jpg',
-                'sources/vizualizacie/Rodinny Dom Bratislava/viz_328.jpg',
-                'sources/vizualizacie/Rodinny Dom Bratislava/2.jpg',
-                'sources/vizualizacie/Rodinny dom Dunajska streda/viz_310.jpg',
-                'sources/vizualizacie/Rodinny dom Dunajska streda/viz_311.jpg'
+                // All 6 reference projects using their preview images
+                'sources/referencie/Referencie Park House/20240425_133128.jpg',
+                'sources/referencie/Referencie RD Galanta/20230317_130237.jpg',
+                'sources/referencie/Referencie RD Jarovce/20200612_131727.jpg',
+                'sources/referencie/Referencie byt Dunajská Streda/20250529_141535.jpg',
+                'sources/referencie/Referncie RD Baka/20240301_101417.jpg',
+                'sources/referencie/Referncie RD Veľké Dvorníky/20241030_141601.jpg',
+                // Additional photos from different projects for variety
+                'sources/referencie/Referencie Park House/20240425_132742.jpg',
+                'sources/referencie/Referencie RD Galanta/20230317_124021.jpg',
+                'sources/referencie/Referencie RD Jarovce/20190618_085844.jpg',
+                'sources/referencie/Referencie byt Dunajská Streda/20250813_185319.jpg',
+                'sources/referencie/Referncie RD Baka/20240301_100432.jpg',
+                'sources/referencie/Referncie RD Veľké Dvorníky/20241030_141737.jpg'
             ];
             
             // Function to get random image from interior collection
@@ -284,21 +280,19 @@
             const homeGallery = document.getElementById('home-gallery');
             if (homeGallery) {
                 const galleryItems = [
-                    // References portfolio items
-                    { image: galleryImages[0], alt: 'TOP INTERIER - moderná kuchyňa na mieru', title: 'Moderná kuchyňa', type: 'reference' },
-                    { image: galleryImages[1], alt: 'TOP INTERIER - dizajnový interiér', title: 'Dizajnový interiér', type: 'reference' },
-                    { image: galleryImages[2], alt: 'TOP INTERIER - pracovný priestor', title: 'Pracovný priestor', type: 'reference' },
-                    { image: galleryImages[3], alt: 'TOP INTERIER - komplexný interiér', title: 'Komplexný interiér', type: 'reference' },
-                    { image: galleryImages[4], alt: 'TOP INTERIER - luxusná kuchyňa', title: 'Luxusná kuchyňa', type: 'reference' },
-                    { image: galleryImages[5], alt: 'TOP INTERIER - moderný štýl', title: 'Moderný štýl', type: 'reference' },
-                    { image: galleryImages[6], alt: 'TOP INTERIER - tradičný charakter', title: 'Tradičný charakter', type: 'reference' },
-                    // Visualization projects
-                    { image: galleryImages[7], alt: 'Bratislava Skypark - 3D vizualizácia', title: 'Bratislava Skypark', type: 'visualization' },
-                    { image: galleryImages[8], alt: 'Bratislava Skypark - moderný apartmán', title: 'Skypark Apartment', type: 'visualization' },
-                    { image: galleryImages[9], alt: 'Rodinný Dom Bratislava - 3D návrh', title: 'Dom Bratislava', type: 'visualization' },
-                    { image: galleryImages[10], alt: 'Bratislava rodinný dom - interiér', title: 'Bratislava Interior', type: 'visualization' },
-                    { image: galleryImages[11], alt: 'Dunajská Streda - rodinný dom', title: 'Dom Dunajská Streda', type: 'visualization' },
-                    { image: galleryImages[12], alt: 'Dunajská Streda - moderný dizajn', title: 'Moderný Dom DS', type: 'visualization' }
+                    // Real reference projects
+                    { image: galleryImages[0], alt: 'TOP INTERIER - Park House Bratislava', title: 'Park House', type: 'reference' },
+                    { image: galleryImages[1], alt: 'TOP INTERIER - Rodinný dom Galanta', title: 'Dom Galanta', type: 'reference' },
+                    { image: galleryImages[2], alt: 'TOP INTERIER - Rodinný dom Jarovce', title: 'Dom Jarovce', type: 'reference' },
+                    { image: galleryImages[3], alt: 'TOP INTERIER - Byt Dunajská Streda', title: 'Byt Dunajská Streda', type: 'reference' },
+                    { image: galleryImages[4], alt: 'TOP INTERIER - Rodinný dom Baka', title: 'Dom Baka', type: 'reference' },
+                    { image: galleryImages[5], alt: 'TOP INTERIER - Rodinný dom Veľké Dvorníky', title: 'Dom Veľké Dvorníky', type: 'reference' },
+                    { image: galleryImages[6], alt: 'TOP INTERIER - Park House detail', title: 'Park House Detail', type: 'reference' },
+                    { image: galleryImages[7], alt: 'TOP INTERIER - Galanta detail', title: 'Galanta Detail', type: 'reference' },
+                    { image: galleryImages[8], alt: 'TOP INTERIER - Jarovce detail', title: 'Jarovce Detail', type: 'reference' },
+                    { image: galleryImages[9], alt: 'TOP INTERIER - Dunajská Streda detail', title: 'DS Detail', type: 'reference' },
+                    { image: galleryImages[10], alt: 'TOP INTERIER - Baka detail', title: 'Baka Detail', type: 'reference' },
+                    { image: galleryImages[11], alt: 'TOP INTERIER - Dvorníky detail', title: 'Dvorníky Detail', type: 'reference' }
                 ];
                 
                 // Create infinite loop by triplicating items

@@ -71,52 +71,325 @@
         document.addEventListener('DOMContentLoaded', function() {
             const galleryContainer = document.getElementById('vizualizacie-gallery');
             
-            // Visualization projects data
-            const vizProjects = [
+            // Category cards data with photos from reference projects
+            const categoryCards = [
                 {
-                    title: 'Bratislava Skypark',
-                    description: 'Moderný apartmán v prestížnej lokalite s panoramatickým výhľadom',
-                    link: 'projekt.html?projekt=bratislava-skypark',
-                    image: '../sources/vizualizacie/Bratislava Skypark/viz_283.jpg',
-                    height: 'tall',
-                    categories: ['moderne-kuchyne', 'obyvacie-izby']
+                    id: 'kuchyne',
+                    title: 'Kuchyne',
+                    description: 'Moderné a funkčné kuchynské riešenia na mieru',
+                    coverImage: '../sources/referencie/Referencie Park House/20240425_133128.jpg',
+                    photos: [
+                        '../sources/referencie/Referencie Park House/20240425_133128.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_130237.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_131727.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_101417.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_141601.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_132742.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_124021.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_085844.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100432.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_141737.jpg'
+                    ]
                 },
                 {
-                    title: 'Rodinný Dom Bratislava',
-                    description: 'Elegantný rodinný dom s dôrazom na svetlé priestory',
-                    link: 'projekt.html?projekt=rodinny-dom-bratislava',
-                    image: '../sources/vizualizacie/Rodinny Dom Bratislava/viz_328.jpg',
-                    height: 'medium',
-                    categories: ['spalne', 'obyvacie-izby', 'kupelne']
+                    id: 'obyvacie-izby',
+                    title: 'Obývacie izby',
+                    description: 'Útulné a elegantné priestory pre relaxáciu',
+                    coverImage: '../sources/referencie/Referencie RD Galanta/20230317_125134.jpg',
+                    photos: [
+                        '../sources/referencie/Referencie RD Galanta/20230317_125134.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_134011.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_092053.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_101051.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_185319.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125334.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_133823.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_092245.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_102018.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_192343.jpg'
+                    ]
                 },
                 {
-                    title: 'Rodinný dom Dunajská Streda',
-                    description: 'Funkčný dizajn s tradičnými prvkami v modernom prevedení',
-                    link: 'projekt.html?projekt=rodinny-dom-dunajska-streda',
-                    image: '../sources/vizualizacie/Rodinny dom Dunajska streda/viz_310.jpg',
-                    height: 'short',
-                    categories: ['tradicne-kuchyne', 'obyvacie-izby']
+                    id: 'spalne',
+                    title: 'Spálne',
+                    description: 'Pokojné a harmonické priestory pre odpočinok',
+                    coverImage: '../sources/referencie/Referencie RD Jarovce/20200611_095347.jpg',
+                    photos: [
+                        '../sources/referencie/Referencie RD Jarovce/20200611_095347.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_192422.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_134221.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125546.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100539.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_130053.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_192643.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_134252.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125641.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100619.jpg'
+                    ]
+                },
+                {
+                    id: 'detske-izby',
+                    title: 'Detské izby',
+                    description: 'Farebné a bezpečné priestory pre deti',
+                    coverImage: '../sources/referencie/Referencie byt Dunajská Streda/20250903_093836.jpg',
+                    photos: [
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250903_093836.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250903_093912.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_090735.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100818.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_125814.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_132635.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_130454.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_102403.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_130516.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/20250813_192754 copy.jpg'
+                    ]
+                },
+                {
+                    id: 'predsiene',
+                    title: 'Predsiene',
+                    description: 'Funkčné vstupné priestory a chodby',
+                    coverImage: '../sources/referencie/Referencie RD Jarovce/20200612_130646.jpg',
+                    photos: [
+                        '../sources/referencie/Referencie RD Jarovce/20200612_130646.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_130836.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_103041.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_133057.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_123937.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20200612_131341.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_100141.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_133229.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_124108.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_142341.jpg'
+                    ]
+                },
+                {
+                    id: 'ostatne',
+                    title: 'Ostatné',
+                    description: 'Ďalšie priestory a špeciálne riešenia',
+                    coverImage: '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_143537.jpg',
+                    photos: [
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_143537.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_143936.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_144143.jpg',
+                        '../sources/referencie/Referncie RD Veľké Dvorníky/20241030_144441.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_092413.jpg',
+                        '../sources/referencie/Referencie RD Galanta/20230317_124210.jpg',
+                        '../sources/referencie/Referncie RD Baka/20240301_101544.jpg',
+                        '../sources/referencie/Referencie byt Dunajská Streda/táta.jpg',
+                        '../sources/referencie/Referencie RD Jarovce/20190618_085739.jpg',
+                        '../sources/referencie/Referencie Park House/20240425_133128.jpg'
+                    ]
                 }
             ];
             
-            // Create visualization gallery items
-            vizProjects.forEach(function(project) {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'vizualizacie-card';
-                galleryItem.setAttribute('data-category', project.categories.join(','));
-                
-                galleryItem.innerHTML = `
-                    <div class="vizualizacie-card-container" data-lightbox="vizualizacie" data-src="${project.image}">
-                        <img src="${project.image}" alt="${project.title}" loading="lazy">
-                    </div>
-                `;
-                
-                galleryContainer.appendChild(galleryItem);
-            });
+            let currentView = 'categories'; // 'categories' or 'photos'
+            let currentCategory = null;
             
-            // Initialize filter
+            // Create category cards
+            function createCategoryCards() {
+                galleryContainer.innerHTML = '';
+                currentView = 'categories';
+                
+                categoryCards.forEach(function(category) {
+                    const categoryCard = document.createElement('div');
+                    categoryCard.className = 'vizualizacie-card';
+                    categoryCard.setAttribute('data-category', category.id);
+                    
+                    categoryCard.innerHTML = `
+                        <div class="vizualizacie-card-container category-card" data-category-id="${category.id}">
+                            <img src="${category.coverImage}" alt="${category.title}" loading="lazy">
+                            <div class="vizualizacie-card-overlay">
+                                <h3 class="vizualizacie-card-title">${category.title}</h3>
+                                <p class="vizualizacie-card-description">${category.description}</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Add click event to open category
+                    categoryCard.addEventListener('click', () => {
+                        openCategory(category);
+                    });
+                    
+                    galleryContainer.appendChild(categoryCard);
+                });
+                
+                // Trigger animation after cards are created
+                triggerCardAnimations();
+            }
+            
+            // Open category to show photos
+            function openCategory(category) {
+                currentCategory = category;
+                currentView = 'photos';
+                galleryContainer.innerHTML = '';
+                
+                // Update page title
+                const pageTitle = document.querySelector('.contact-hero-title');
+                if (pageTitle) {
+                    pageTitle.innerHTML = `<span style="cursor: pointer;" onclick="goBackToCategories()">← Vizualizácie</span> / ${category.title}`;
+                }
+                
+                // Create photo grid
+                category.photos.forEach(function(photo, index) {
+                    const photoCard = document.createElement('div');
+                    photoCard.className = 'vizualizacie-card';
+                    photoCard.setAttribute('data-category', category.id);
+                    
+                    photoCard.innerHTML = `
+                        <div class="vizualizacie-card-container" data-lightbox="category-photos" data-src="${photo}">
+                            <img src="${photo}" alt="${category.title} ${index + 1}" loading="lazy">
+                        </div>
+                    `;
+                    
+                    galleryContainer.appendChild(photoCard);
+                });
+                
+                // Trigger animation for photo cards
+                triggerCardAnimations();
+                
+                // Update sidebar filter to show active category
+                updateSidebarFilter(category.id);
+                
+                // Re-initialize lightbox for photos
+                if (typeof initLightbox === 'function') {
+                    initLightbox();
+                    initLightboxForPhotos(category.photos);
+                }
+            }
+            
+            // Go back to categories view
+            function goBackToCategories() {
+                currentView = 'categories';
+                currentCategory = null;
+                
+                // Reset page title
+                const pageTitle = document.querySelector('.contact-hero-title');
+                if (pageTitle) {
+                    pageTitle.textContent = 'Vizualizácie';
+                }
+                
+                createCategoryCards();
+                
+                // Reset sidebar filter
+                updateSidebarFilter('all');
+            }
+            
+            // Update sidebar filter active state
+            function updateSidebarFilter(activeCategory) {
+                // Wait for filter to be initialized
+                setTimeout(() => {
+                    const filterButtons = document.querySelectorAll('.filter-category');
+                    const mobileOptions = document.querySelectorAll('.mobile-filter-option');
+                    
+                    // Remove active from all
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    mobileOptions.forEach(opt => opt.classList.remove('active'));
+                    
+                    // Add active to current category
+                    const activeBtn = document.querySelector(`.filter-category[data-filter="${activeCategory}"]`);
+                    const activeMobileOpt = document.querySelector(`.mobile-filter-option[data-filter="${activeCategory}"]`);
+                    
+                    if (activeBtn) {
+                        activeBtn.classList.add('active');
+                    }
+                    
+                    if (activeMobileOpt) {
+                        activeMobileOpt.classList.add('active');
+                        // Update mobile dropdown text
+                        const selectedText = document.querySelector('.mobile-selected-text');
+                        if (selectedText) {
+                            selectedText.textContent = activeMobileOpt.textContent;
+                        }
+                    }
+                }, 100);
+            }
+            
+            // Initialize lightbox for category photos
+            function initLightboxForPhotos(photos) {
+                const lightboxElements = document.querySelectorAll('[data-lightbox="category-photos"]');
+                if (lightboxElements.length > 0) {
+                    lightboxElements.forEach((element, index) => {
+                        element.style.cursor = 'pointer';
+                        element.addEventListener('click', () => {
+                            if (typeof openLightbox === 'function') {
+                                openLightbox(photos, index);
+                            }
+                        });
+                    });
+                }
+            }
+            
+            // Trigger card animations (move up effect)
+            function triggerCardAnimations() {
+                const cards = document.querySelectorAll('.vizualizacie-card');
+                
+                // Initially hide cards (move them down and make transparent)
+                cards.forEach(card => {
+                    card.style.transform = 'translateY(50px)';
+                    card.style.opacity = '0';
+                    card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease';
+                });
+                
+                // Animate cards up with staggered delay
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.transform = 'translateY(0)';
+                        card.style.opacity = '1';
+                    }, index * 150); // 150ms delay between each card
+                });
+            }
+            
+            // Make functions globally available
+            window.goBackToCategories = goBackToCategories;
+            window.openCategoryFromFilter = function(categoryId) {
+                if (currentView === 'categories') {
+                    // If on categories view, find and open the category
+                    const category = categoryCards.find(cat => cat.id === categoryId);
+                    if (category) {
+                        openCategory(category);
+                    }
+                } else {
+                    // If in photos view, check if it's the same category
+                    if (currentCategory && currentCategory.id === categoryId) {
+                        // Same category, just update filter state
+                        updateSidebarFilter(categoryId);
+                    } else {
+                        // Different category, switch to it
+                        const category = categoryCards.find(cat => cat.id === categoryId);
+                        if (category) {
+                            openCategory(category);
+                        }
+                    }
+                }
+            };
+            
+            // Override filter button clicks to manage active state properly
+            window.customApplyFilter = function(filterId) {
+                // Update active state immediately
+                setTimeout(() => {
+                    updateSidebarFilter(filterId);
+                }, 50);
+                
+                // Then handle the filter logic
+                if (filterId !== 'all') {
+                    window.openCategoryFromFilter(filterId);
+                } else {
+                    window.goBackToCategories();
+                }
+            };
+            
+            // Initialize category cards
+            createCategoryCards();
+            
+            // Initialize filter with custom flag
             if (typeof initFilter === 'function') {
+                window.customFilterInit = true; // Prevent default active state
                 initFilter();
+                // Set "Všetky kategórie" as active initially
+                setTimeout(() => {
+                    updateSidebarFilter('all');
+                }, 200);
             }
             
             // Initialize lightbox
