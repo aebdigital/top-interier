@@ -10,19 +10,8 @@ function ensureFooterCSSLoaded() {
     const existingLink = document.querySelector('link[href*="footer.css"]');
     if (existingLink) return;
     
-    // Determine CSS path based on current location
-    const currentPath = window.location.pathname;
-    const isInServicePage = currentPath.includes('/service-page/');
-    const isInPagesDir = currentPath.includes('/pages/') && !isInServicePage;
-    
-    let cssPath;
-    if (isInServicePage) {
-        cssPath = '../../css/components/footer.css?v=1.4';
-    } else if (isInPagesDir) {
-        cssPath = '../css/components/footer.css?v=1.4';
-    } else {
-        cssPath = 'css/components/footer.css?v=1.4';
-    }
+    // Use absolute path for CSS
+    const cssPath = '/css/components/footer.css?v=1.4';
     
     // Create and inject CSS link
     const link = document.createElement('link');
@@ -34,28 +23,6 @@ function ensureFooterCSSLoaded() {
 function loadFooter() {
     // Ensure footer CSS is loaded
     ensureFooterCSSLoaded();
-    
-    // Determine current location and set appropriate paths
-    const currentPath = window.location.pathname;
-    const isInServicePage = currentPath.includes('/service-page/');
-    const isInPagesDir = currentPath.includes('/pages/') && !isInServicePage;
-    
-    // Set navigation paths based on current location
-    let basePath, pagesPath;
-    
-    if (isInServicePage) {
-        // We're in /pages/service-page/ - need different paths for different targets
-        basePath = '../../';  // To reach root for index.html
-        pagesPath = '../';    // To reach /pages/ directory (go up one level from service-page)
-    } else if (isInPagesDir) {
-        // We're in /pages/ - stay in pages directory for other pages
-        basePath = '../';     // To reach root for index.html
-        pagesPath = '';       // Other pages are in same directory
-    } else {
-        // We're in root directory
-        basePath = '';
-        pagesPath = 'pages/';
-    }
     
     const footerHTML = `
         <footer id="footer" class="footer">
@@ -86,7 +53,7 @@ function loadFooter() {
                     <div class="footer-column footer-cta">
                         <h3>Máte záujem o naše služby?</h3>
                         <p>Kontaktujte nás pre bezplatnú konzultáciu a cenovú ponuku</p>
-                        <a href="${pagesPath}kontakt.html" class="footer-cta-button">Kontaktovať nás</a>
+                        <a href="/kontakt" class="footer-cta-button">Kontaktovať nás</a>
                     </div>
                 </div>
                 

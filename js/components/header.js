@@ -10,27 +10,8 @@ export function initHeader() {
 // Make functions globally available for fallback - after function declarations
 
 function loadNavigation() {
-    // Determine current location and set appropriate paths
-    const currentPath = window.location.pathname;
-    const isInServicePage = currentPath.includes('/service-page/');
-    const isInPagesDir = currentPath.includes('/pages/') && !isInServicePage;
-    
-    // Set navigation paths based on current location
-    let basePath, pagesPath;
-    
-    if (isInServicePage) {
-        // We're in /pages/service-page/
-        basePath = '../../';  // To reach root for index.html
-        pagesPath = '../';    // To reach /pages/ directory
-    } else if (isInPagesDir) {
-        // We're in /pages/
-        basePath = '../';     // To reach root for index.html
-        pagesPath = '';       // Other pages are in same directory (just filename.html)
-    } else {
-        // We're in root directory
-        basePath = '';        // index.html is in same directory
-        pagesPath = 'pages/'; // Other pages are in pages/ subdirectory
-    }
+    // Navigation paths using absolute paths for clean URLs
+    const basePath = '/';
     
     const navigationHTML = `
         
@@ -39,16 +20,16 @@ function loadNavigation() {
         <nav class="navbar navbar-transparent">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="${basePath}index.html" class="logo-link">
+                    <a href="/" class="logo-link">
                         <span class="logo-text">TOP INTERIER</span>
                     </a>
                 </div>
                 <ul class="nav-menu nav-menu-left">
-                    <li><a href="${basePath}index.html" class="nav-link">Domov</a></li>
-                    <li><a href="${pagesPath}sluzby.html" class="nav-link">Služby</a></li>
-                    <li><a href="${pagesPath}vizualizacie.html" class="nav-link">Vizualizácie</a></li>
-                    <li><a href="${pagesPath}referencie.html" class="nav-link">Referencie</a></li>
-                    <li><a href="${pagesPath}kontakt.html" class="nav-link">Kontakt</a></li>
+                    <li><a href="/" class="nav-link">Domov</a></li>
+                    <li><a href="/sluzby" class="nav-link">Služby</a></li>
+                    <li><a href="/vizualizacie" class="nav-link">Vizualizácie</a></li>
+                    <li><a href="/referencie" class="nav-link">Referencie</a></li>
+                    <li><a href="/kontakt" class="nav-link">Kontakt</a></li>
                 </ul>
                 <div class="nav-menu-right">
                     <div class="social-icons">
@@ -81,11 +62,11 @@ function loadNavigation() {
                 <button class="mobile-close-btn">✕</button>
             </div>
             <ul class="mobile-nav-menu">
-                <li><a href="${basePath}index.html" class="mobile-nav-link">Domov</a></li>
-                <li><a href="${pagesPath}sluzby.html" class="mobile-nav-link">Služby</a></li>
-                <li><a href="${pagesPath}vizualizacie.html" class="mobile-nav-link">Vizualizácie</a></li>
-                <li><a href="${pagesPath}referencie.html" class="mobile-nav-link">Referencie</a></li>
-                <li><a href="${pagesPath}kontakt.html" class="mobile-nav-link">Kontakt</a></li>
+                <li><a href="/" class="mobile-nav-link">Domov</a></li>
+                <li><a href="/sluzby" class="mobile-nav-link">Služby</a></li>
+                <li><a href="/vizualizacie" class="mobile-nav-link">Vizualizácie</a></li>
+                <li><a href="/referencie" class="mobile-nav-link">Referencie</a></li>
+                <li><a href="/kontakt" class="mobile-nav-link">Kontakt</a></li>
             </ul>
         </div>
     `;
@@ -99,7 +80,8 @@ function loadNavigation() {
         setTimeout(() => {
             const logoImage = document.querySelector('.logo-image');
             if (logoImage && !logoImage.src) {
-                logoImage.src = `${basePath}sources/logo2.png`;
+                // Use absolute path for logo
+                logoImage.src = '/sources/logo2.png';
                 console.log('Logo source set to:', logoImage.src);
             }
         }, 100);

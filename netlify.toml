@@ -1,0 +1,56 @@
+[build]
+  publish = "."
+
+# Netlify Rewrites for Clean URLs
+
+[[redirects]]
+  from = "/kontakt"
+  to = "/pages/kontakt.html"
+  status = 200
+
+[[redirects]]
+  from = "/sluzby"
+  to = "/pages/sluzby.html"
+  status = 200
+
+[[redirects]]
+  from = "/referencie"
+  to = "/pages/referencie.html"
+  status = 200
+
+[[redirects]]
+  from = "/vizualizacie"
+  to = "/pages/vizualizacie.html"
+  status = 200
+
+[[redirects]]
+  from = "/projekt"
+  to = "/pages/projekt.html"
+  status = 200
+
+# Canonical Redirects (Optional: Redirect .html to clean URL if accessed directly)
+# These are commented out for now to ensure safe rollout, but recommended for final SEO.
+# [[redirects]]
+#   from = "/pages/kontakt.html"
+#   to = "/kontakt"
+#   status = 301
+# 
+# [[redirects]]
+#   from = "/pages/sluzby.html"
+#   to = "/sluzby"
+#   status = 301
+# 
+# [[redirects]]
+#   from = "/pages/referencie.html"
+#   to = "/referencie"
+#   status = 301
+# 
+# [[redirects]]
+#   from = "/pages/vizualizacie.html"
+#   to = "/vizualizacie"
+#   status = 301
+#
+# [[redirects]]
+#   from = "/pages/projekt.html"
+#   to = "/projekt"
+#   status = 301

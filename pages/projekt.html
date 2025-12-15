@@ -9,15 +9,18 @@
     <meta name="description" id="page-description" content="3D vizualizácia interiéru od TOP INTERIER s.r.o.">
     <meta name="keywords" id="page-keywords" content="projekt, vizualizácia, interiér">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://topinterier.sk/projekt">
+
     <!-- Base CSS -->
-    <link rel="stylesheet" href="../css/base.css?v=3.0">
+    <link rel="stylesheet" href="/css/base.css?v=3.0">
     <!-- Component CSS -->
-    <link rel="stylesheet" href="../css/components/header.css?v=3.0">
-    <link rel="stylesheet" href="../css/components/footer.css?v=3.0">
-    <link rel="stylesheet" href="../css/components/hero.css?v=3.0">
+    <link rel="stylesheet" href="/css/components/header.css?v=3.0">
+    <link rel="stylesheet" href="/css/components/footer.css?v=3.0">
+    <link rel="stylesheet" href="/css/components/hero.css?v=3.0">
     <!-- Page-specific CSS -->
-    <link rel="stylesheet" href="../css/project-detail.css?v=3.0">
-    <link rel="stylesheet" href="../css/components/lightbox.css?v=3.0">
+    <link rel="stylesheet" href="/css/project-detail.css?v=3.0">
+    <link rel="stylesheet" href="/css/components/lightbox.css?v=3.0">
     
     <!-- GSAP and Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -44,7 +47,7 @@
                     <!-- Meta information will be loaded dynamically -->
                 </div>
                 
-                <a href="referencie.html" class="back-to-vizualizacie">
+                <a href="/referencie" class="back-to-vizualizacie">
                     ← Späť na referencie
                 </a>
             </div>
@@ -65,9 +68,9 @@
     <div id="footer-container"></div>
 
     <!-- Load components directly with fallback -->
-    <script src="../js/fallback-components.js?v=3.0"></script>
-    <script src="../js/gsap-simple.js?v=3.0"></script>
-    <script src="../js/components/lightbox.js?v=3.0"></script>
+    <script src="/js/fallback-components.js?v=3.0"></script>
+    <script src="/js/gsap-simple.js?v=3.0"></script>
+    <script src="/js/components/lightbox.js?v=3.0"></script>
     
     <!-- Dynamic Project Data -->
     <script>
@@ -84,7 +87,7 @@
                     { label: 'Rok realizácie', value: '2024' },
                     { label: 'Lokalita', value: 'Bratislava' }
                 ],
-                folder: '../sources/referencie/Referencie Park House',
+                folder: '/sources/referencie/Referencie Park House',
                 images: [
                     '20240425_133128.jpg',
                     '20240425_132635.jpg',
@@ -111,7 +114,7 @@
                     { label: 'Rok realizácie', value: '2023' },
                     { label: 'Lokalita', value: 'Galanta' }
                 ],
-                folder: '../sources/referencie/Referencie RD Galanta',
+                folder: '/sources/referencie/Referencie RD Galanta',
                 images: [
                     '20230317_130237.jpg',
                     '20230317_123937.jpg',
@@ -140,7 +143,7 @@
                     { label: 'Rok realizácie', value: '2019-2020' },
                     { label: 'Lokalita', value: 'Jarovce' }
                 ],
-                folder: '../sources/referencie/Referencie RD Jarovce',
+                folder: '/sources/referencie/Referencie RD Jarovce',
                 images: [
                     '20200612_131727.jpg',
                     '20190618_085739.jpg',
@@ -171,7 +174,7 @@
                     { label: 'Rok realizácie', value: '2025' },
                     { label: 'Lokalita', value: 'Dunajská Streda' }
                 ],
-                folder: '../sources/referencie/Referencie byt Dunajská Streda',
+                folder: '/sources/referencie/Referencie byt Dunajská Streda',
                 images: [
                     '20250529_141535.jpg',
                     '20250813_185319.jpg',
@@ -198,7 +201,7 @@
                     { label: 'Rok realizácie', value: '2024' },
                     { label: 'Lokalita', value: 'Baka' }
                 ],
-                folder: '../sources/referencie/Referncie RD Baka',
+                folder: '/sources/referencie/Referncie RD Baka',
                 images: [
                     '20240301_101417.jpg',
                     '20240301_100141.jpg',
@@ -227,7 +230,7 @@
                     { label: 'Rok realizácie', value: '2024' },
                     { label: 'Lokalita', value: 'Veľké Dvorníky' }
                 ],
-                folder: '../sources/referencie/Referncie RD Veľké Dvorníky',
+                folder: '/sources/referencie/Referncie RD Veľké Dvorníky',
                 images: [
                     '20241030_141601.jpg',
                     '20241030_141737.jpg',
@@ -253,7 +256,7 @@
             
             if (!project) {
                 // If project not found, redirect to references page
-                window.location.href = 'referencie.html';
+                window.location.href = '/referencie';
                 return;
             }
 
@@ -352,7 +355,7 @@
                 loadProjectData(projectId);
             } else {
                 // If no project ID, redirect to references page
-                window.location.href = 'referencie.html';
+                window.location.href = '/referencie';
             }
         });
     </script>
