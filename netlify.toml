@@ -28,6 +28,11 @@
   to = "/pages/projekt.html"
   status = 200
 
+[[redirects]]
+  from = "/ochrana-osobnych-udajov"
+  to = "/pages/ochrana-osobnych-udajov.html"
+  status = 200
+
 # Canonical Redirects (Optional: Redirect .html to clean URL if accessed directly)
 # These are commented out for now to ensure safe rollout, but recommended for final SEO.
 # [[redirects]]
